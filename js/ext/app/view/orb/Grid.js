@@ -73,11 +73,16 @@ Ext.define('Calc.view.orb.Grid', {
     }, {
         xtype: 'toolbar',
         dock: 'bottom',
+        ui: 'footer',
+        height: 50,
         items: [{
             xtype: 'tbfill'
         }, {
-            text: 'Reset',
-            action: 'reset'
-        }]   
+            text: '<b>Reset</b>',
+            action: 'reset',
+            width: 200
+        },{
+            xtype: 'tbfill'
+        }]
     }]
 });

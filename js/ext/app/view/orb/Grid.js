@@ -69,12 +69,13 @@ Ext.define('Calc.view.orb.Grid', {
         padding: 5,
         html: 'Click on a "Input Amount" cell to input a value =D <br><br>' +
               'For concerns about orb values please leave comments on thread ' +
-              '<a href="http://www.pathofexile.com/forum/view-thread/441192" target="_blank">441192</a> <br><br>' +
-              'GitHub: <a href="https://github.com/4rg0n/poe_orb_calc" target="_blank">click</a>'
+              '<a href="http://www.pathofexile.com/forum/view-thread/441192" target="_blank">441192</a>'
     }, {
         xtype: 'toolbar',
         dock: 'bottom',
         items: [{
+            xtype: 'tbfill'
+        }, {
             text: 'Reset',
             action: 'reset'
         }]   

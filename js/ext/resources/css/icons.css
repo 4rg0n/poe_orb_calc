@@ -1,0 +1,228 @@
+@CHARSET "UTF-8";
+
+.calc-icon {
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+
+/*
+ * 16px
+ */
+
+.calc-icon-chaos-16px {
+    background-image:url(../icon/16px/chaos.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-transmutation-16px {
+    background-image:url(../icon/16px/transmutation.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-augmentation-16px {
+    background-image:url(../icon/16px/augmentation.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-alteration-16px {
+    background-image:url(../icon/16px/alteration.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-jeweller-16px {
+    background-image:url(../icon/16px/jeweller.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-chance-16px {
+    background-image:url(../icon/16px/chance.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-chromatic-16px {
+    background-image:url(../icon/16px/chromatic.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-chisel-16px {
+    background-image:url(../icon/16px/chisel.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-fusing-16px {
+    background-image:url(../icon/16px/fusing.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-alchemy-16px {
+    background-image:url(../icon/16px/alchemy.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-scouring-16px {
+    background-image:url(../icon/16px/scouring.png);
+    height: 16px; 
+    width: 16px;
+}
+.calc-icon-blessed-16px {
+    background-image:url(../icon/16px/blessed.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-regret-16px {
+    background-image:url(../icon/16px/regret.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-regal-16px {
+    background-image:url(../icon/16px/regal.png);
+    height: 16px; 
+    width: 16px;
+}
+.calc-icon-prism-16px {
+    background-image:url(../icon/16px/prism.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-divine-16px {
+    background-image:url(../icon/16px/divine.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-exalted-16px {
+    background-image:url(../icon/16px/exalted.png);
+    height: 16px; 
+    width: 16px;
+}
+
+.calc-icon-eternal-16px {
+    background-image:url(../icon/16px/eternal.png);
+    height: 16px; 
+    width: 16px;
+}
+
+
+/*
+ * 48px 
+ */
+
+.calc-icon-chaos-48px {
+    background-image:url(../icon/48px/chaos.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-transmutation-48px {
+    background-image:url(../icon/48px/transmutation.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-augmentation-48px {
+    background-image:url(../icon/48px/augmentation.png);
+    height: 48px; 
+    width: 16px;
+}
+
+.calc-icon-alteration-48px {
+    background-image:url(../icon/48px/alteration.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-jeweller-48px {
+    background-image:url(../icon/48px/jeweller.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-chance-48px {
+    background-image:url(../icon/48px/chance.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-chromatic-48px {
+    background-image:url(../icon/48px/chromatic.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-chisel-48px {
+    background-image:url(../icon/48px/chisel.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-fusing-48px {
+    background-image:url(../icon/48px/fusing.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-alchemy-48px {
+    background-image:url(../icon/48px/alchemy.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-scouring-48px {
+    background-image:url(../icon/48px/scouring.png);
+    height: 48px; 
+    width: 48px;
+}
+.calc-icon-blessed-48px {
+    background-image:url(../icon/48px/blessed.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-regret-48px {
+    background-image:url(../icon/48px/regret.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-regal-48px {
+    background-image:url(../icon/48px/regal.png);
+    height: 48px; 
+    width: 48px;
+}
+.calc-icon-prism-48px {
+    background-image:url(../icon/48px/prism.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-divine-48px {
+    background-image:url(../icon/48px/divine.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-exalted-48px {
+    background-image:url(../icon/48px/exalted.png);
+    height: 48px; 
+    width: 48px;
+}
+
+.calc-icon-eternal-48px {
+    background-image:url(../icon/48px/eternal.png);
+    height: 48px; 
+    width: 48px;
+}

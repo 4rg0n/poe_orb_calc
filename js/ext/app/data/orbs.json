@@ -1,0 +1,118 @@
+{
+orbs: [
+    {
+        id: 'transmutation',
+        name: 'Orb of Transmutation',
+        value: 0.0625,
+        iconCls: 'icon-transmutation'
+    },
+    {
+        id: 'augmentation',
+        name: 'Orb of Augmentation',
+        value: 0.0625,
+        iconCls: 'icon-augmentation'
+    },
+    {
+        id: 'alteration',
+        name: 'Orb of Alteration',
+        value: 0.125,
+        iconCls: 'icon-alteration'
+    },
+    {
+        id: 'jeweller',
+        name: 'Jewellers Orb',
+        value: 0.25,
+        iconCls: 'icon-jeweller'
+    },
+    {
+        id: 'chance',
+        name: 'Orb of Chance',
+        value: 0.3333333,
+        iconCls: 'icon-chance'
+    },
+    {
+        id: 'chromatic',
+        name: 'Chromatic Orb',
+        value: 0.133333,
+        iconCls: 'icon-chromatic'
+    },
+    {
+        id: 'chisel',
+        name: 'Cartographers Chisel',
+        value: 1,
+        iconCls: 'icon-chisel'
+    },
+    {
+        id: 'fusing',
+        name: 'Orb of Fusing',
+        value: 1,
+        iconCls: 'icon-fusing'
+    },
+    {
+        id: 'alchemy',
+        name: 'Orb of Alchemy',
+        value: 1,
+        iconCls: 'icon-alchemy'
+    },
+    {
+        id: 'scouring',
+        name: 'Orb of Scouring',
+        value: 1,
+        iconCls: 'icon-scouring'
+    },
+    {
+        id: 'blessed',
+        name: 'Blessed Orb',
+        value: 2,
+        iconCls: 'icon-blessed'
+    },
+    {
+        id: 'chaos',
+        name: 'Chaos Orb',
+        value: 2,
+        iconCls: 'icon-chaos'
+    },
+    {
+        id: 'regret',
+        name: 'Orb of Regret',
+        value: 2,
+        iconCls: 'icon-regret'
+    },
+    {
+        id: 'regal',
+        name: 'Regal Orb',
+        value: 4,
+        iconCls: 'icon-regal'
+    },
+    {
+        id: 'prism',
+        name: 'Gemcutters Prism',
+        value: 8,
+        iconCls: 'icon-prism',
+        exceptions: {
+            divine: 0.8
+        }
+    },
+    {
+        id: 'divine',
+        name: 'Divine Orb',
+        value: 30,
+        iconCls: 'icon-divine',
+        exceptions: {
+            prism: 1.25
+        }
+    },
+    {
+        id: 'exalted',
+        name: 'Exalted Orb',
+        value: 120,
+        iconCls: 'icon-exalted'
+    },
+    {
+        id: 'eternal',
+        name: 'Eternal Orb',
+        value: 160,
+        iconCls: 'icon-eternal'
+    }
+]
+}

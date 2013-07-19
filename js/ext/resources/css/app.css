@@ -11,8 +11,14 @@ Loading Animation
 #loading_animation {
     background-image: url(../image/loading.gif);
     background-repeat: no-repeat;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
+    background-position: center;
+    width: 128px;
+    height: 128px;
+    text-align: center;
+
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
 }

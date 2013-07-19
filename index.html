@@ -10,5 +10,27 @@
 <title>Orb Calculator Table</title>
 </head>
 <body>
+
+<div id="loading_animation"></div>
+
 </body>
+
+<!-- Loading Script -->
+<script type="text/javascript">
+    document.getElementById("loading_animation").style.display="block";
+
+    var hideDiv = function(){
+        document.getElementById("loading_animation").style.display="none";
+    };
+
+    var oldLoad = window.onload;
+
+    var newLoad = oldLoad ? function() {
+        hideDiv.call(this);oldLoad.call(this);
+    } : hideDiv;
+
+    window.onload = newLoad;
+</script>
+
+
 </html>

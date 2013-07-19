@@ -3,3 +3,16 @@
 .x-grid-row .calc-input-cell {
     background-color: #DFE9F5;
 }
+
+/*
+Loading Animation
+*/
+
+#loading_animation {
+    background-image: url(../image/loading.gif);
+    background-repeat: no-repeat;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}

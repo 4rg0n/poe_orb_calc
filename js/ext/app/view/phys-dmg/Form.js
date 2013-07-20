@@ -17,6 +17,25 @@ Ext.define('Calc.view.phys-dmg.Form', {
 
     items: [{
         xtype: 'fieldset',
+        title: 'Formula',
+        collapsible: true,
+        collapsed: true,
+
+        items: [{
+            xtype: 'container',
+            itemId: 'formula',
+            styleHtmlContent: true,
+            margin: 5,
+            tpl: '<b>DPS</b> = ({fromDmg} + {toDmg}) / 2 * {attackSpeed}',
+
+            data: {
+                fromDmg: 0,
+                toDmg: 0,
+                attackSpeed: 0.0
+            }
+        }]
+    }, {
+        xtype: 'fieldset',
         title: 'Calculator',
         defaultType: 'textfield',
 

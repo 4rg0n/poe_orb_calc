@@ -24,6 +24,9 @@ Ext.define('Calc.controller.PhysDmg', {
     }, {
         ref: 'resultField',
         selector: 'calc-phys-dmg-form textfield[name="result"]'
+    }, {
+        ref: 'formulaContainer',
+        selector: 'calc-phys-dmg-form container[itemId="formula"]'
     }],
 
 
@@ -56,19 +59,19 @@ Ext.define('Calc.controller.PhysDmg', {
 
     /**
      * Calculates the DPS
-     *
-     * @param {Ext.form.field.Textfield} editor
-     * @param {String} newValue
-     * @param {String} oldValue
      */
-    calculate: function(field, newValue, oldValue)
+    calculate: function()
     {
         var form = this.getPhysDmgForm(),
             physDmgField,
             attackSpeedField,
             resultField = this.getResultField(),
+            formulaContainer = this.getFormulaContainer(),
             physDmg = 0,
             physDmgParts = [],
+            fromDmg = 0,
+            toDmg = 0,
+            attackSpeed = 0.0,
             dps = 0;
 
         if (form.getForm().isValid()) {
@@ -78,16 +81,36 @@ Ext.define('Calc.controller.PhysDmg', {
 
             physDmgParts = physDmgField.getValue().split(this.damageDelimeter);
 
-            physDmg = parseInt(physDmgParts[0]) + parseInt(physDmgParts[1]) / 2;
+            fromDmg = parseInt(physDmgParts[0]);
+            toDmg = parseInt(physDmgParts[1]);
+            attackSpeed = parseFloat(attackSpeedField.getValue());
 
-            dps = physDmg * parseFloat(attackSpeedField.getValue());
+            physDmg = fromDmg + toDmg / 2;
+            dps = physDmg * attackSpeed;
         }
+
+        //Update formula
+        formulaContainer.update({
+            fromDmg: fromDmg,
+            toDmg: toDmg,
+            attackSpeed: attackSpeed
+        });
 
         resultField.setValue(Ext.Number.toFixed(dps, 2));
     },
 
+
+    /**
+     * Resets the form fields and formula
+     */
     reset: function()
     {
+        this.getFormulaContainer().update({
+            fromDmg: 0,
+            toDmg: 0,
+            attackSpeed: 0.0
+        });
+
         this.getPhysDmgForm().getForm().reset();
     }
 

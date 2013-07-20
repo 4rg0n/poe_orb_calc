@@ -78,7 +78,7 @@ Ext.define('Calc.controller.PhysDmg', {
 
             physDmgParts = physDmgField.getValue().split(this.damageDelimeter);
 
-            physDmg = parseInt(physDmgParts[0]) + parseInt(physDmgParts[1]);
+            physDmg = parseInt(physDmgParts[0]) + parseInt(physDmgParts[1]) / 2;
 
             dps = physDmg * parseFloat(attackSpeedField.getValue());
         }

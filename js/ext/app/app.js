@@ -9,7 +9,8 @@ Ext.application({
     appFolder: 'js/ext/app',
     
     controllers: [
-        'Orb'
+        'Orb',
+        'PhysDmg'
     ],
 
 

@@ -19,6 +19,11 @@ Ext.define('Calc.view.layout.MainMenu', {
     }, {
         text: 'GitHub',
         href: 'https://github.com/4rg0n/poe_orb_calc'
+    }, {
+        xtype: 'tbfill'
+    }, {
+        xtype: 'tbtext',
+        text: 'coded by Arg0n & mathed by WhiteSammy'
     }]
 
 });

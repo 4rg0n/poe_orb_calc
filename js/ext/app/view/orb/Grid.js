@@ -11,7 +11,7 @@ Ext.define('Calc.view.orb.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.calc-orb-grid',
     
-    title: 'Path of Exile Orb Calculator Table - coded by Arg0n & mathed by WhiteSammy',
+    title: 'Orb Calculator Table',
     
     store: 'Orbs',
     

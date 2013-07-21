@@ -67,7 +67,10 @@ Ext.define('Calc.view.orb.Grid', {
         xtype: 'container',
         dock: 'top',
         padding: 5,
-        html: 'Click on a "Input Amount" cell to input a value =D <br><br>' +
+        html: '<p><ul>' +
+                '<li>Click on an "Input Amount" cell to input a value</li>' +
+                '<li>Rightclick on an orb to open a chart</li>' +
+              '</ul></p>' +
               'For concerns about orb values please leave comments on thread ' +
               '<a href="http://www.pathofexile.com/forum/view-thread/441192" target="_blank">441192</a>'
     }, {

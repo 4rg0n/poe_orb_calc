@@ -42,7 +42,7 @@ Ext.define('Calc.view.orb.Grid', {
         dataIndex: 'inputAmount',
         flex: 4,
         tooltip: 'The amount of orbs you want to calculate',
-        tdCls: 'calc-input-cell'
+        tdCls: Calc.cssPrefix + 'input-cell'
     }, {
         text: 'Output Amount',
         dataIndex: 'outputAmount',

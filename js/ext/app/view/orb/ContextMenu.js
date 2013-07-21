@@ -13,7 +13,7 @@ Ext.define('Calc.view.orb.ContextMenu', {
 
     items: [{
         text: 'Show Chart',
-        iconCls: 'calc-icon-bar-chart',
+        iconCls: Calc.cssPrefix + 'icon-bar-chart',
         action: 'show-bar-chart'
     }]
 });

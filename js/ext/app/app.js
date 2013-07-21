@@ -3,16 +3,25 @@
  *
  * @author Arg0n <argonthechecker@gmail.com>
  */
+
+//TODO Besser machen?!
+var Calc = {};
+
+Calc.cssPrefix = 'calc-';
+Calc.appFolder = 'js/ext/app';
+
 Ext.application({
 
     requires: [
-        //Singleton
+        'Calc.view.Viewport',
+
+        //Singletons
         'Calc.library.util.XTemplateRenderer'
     ],
 
     name: 'Calc',
-    autoCreateViewport: true,
-    appFolder: 'js/ext/app',
+    autoCreateViewport: false,
+    appFolder: Calc.appFolder,
     
     controllers: [
         'Orb',
@@ -20,13 +29,13 @@ Ext.application({
     ],
 
 
-    /**
-     * init
-     */
-    init: function () {
-        var me = this;
-        
-        Calc.app = me;
-        Calc.cssPrefix = 'calc-';
+    init: function()
+    {
+        Calc.app = this;
+    },
+
+    launch: function()
+    {
+        Ext.create('Calc.view.Viewport');
     }
 });

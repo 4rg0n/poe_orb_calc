@@ -15,7 +15,7 @@ Ext.define('Calc.view.orb.InfoBox', {
     ],
 
     loader: {
-        url:'js/ext/app/template/orb/InfoBox.html',
+        url: Calc.appFolder + '/template/orb/InfoBox.html',
         autoLoad: true,
         renderer: Calc.library.util.XTemplateRenderer.loader
     }

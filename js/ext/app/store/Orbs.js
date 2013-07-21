@@ -14,7 +14,7 @@ Ext.define('Calc.store.Orbs', {
     
     proxy: {
         type: 'ajax',
-        url: 'js/ext/app/data/orbs.json',
+        url: Calc.appFolder + '/data/orbs.json',
         reader: {
             type: 'json',
             root: 'orbs'

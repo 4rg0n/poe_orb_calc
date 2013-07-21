@@ -4,6 +4,12 @@
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.application({
+
+    requires: [
+        //Singleton
+        'Calc.library.util.XTemplateRenderer'
+    ],
+
     name: 'Calc',
     autoCreateViewport: true,
     appFolder: 'js/ext/app',

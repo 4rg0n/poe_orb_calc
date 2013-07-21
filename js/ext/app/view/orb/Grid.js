@@ -5,11 +5,16 @@
  *
  * @class Calc.view.orb.Grid
  * @extends Ext.grid.Panel
+ * @requires Calc.view.orb.InfoBox
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.orb.Grid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.calc-orb-grid',
+
+    requires: [
+        'Calc.view.orb.InfoBox'
+    ],
     
     title: 'Orb Calculator Table',
     
@@ -64,15 +69,9 @@ Ext.define('Calc.view.orb.Grid', {
     },
     
     dockedItems: [{
-        xtype: 'container',
+        xtype: 'calc-orb-info-box',
         dock: 'top',
-        padding: 5,
-        html: '<p><ul>' +
-                '<li>Click on an "Input Amount" cell to input a value</li>' +
-                '<li>Rightclick on an orb to open a chart</li>' +
-              '</ul></p>' +
-              'For concerns about orb values please leave comments on thread ' +
-              '<a href="http://www.pathofexile.com/forum/view-thread/441192" target="_blank">441192</a>'
+        padding: 5
     }, {
         xtype: 'toolbar',
         dock: 'bottom',

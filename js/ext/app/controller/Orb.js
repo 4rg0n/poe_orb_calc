@@ -17,12 +17,17 @@ Ext.define('Calc.controller.Orb', {
     ],
     
     views: [
-        'orb.Grid'
+        'orb.Grid',
+        'orb.ContextMenu',
+        'orb.ChartWindow'
     ],
     
     refs: [{
         ref: 'orbGrid',
         selector: 'calc-orb-grid'
+    }, {
+        ref: 'orbChartWindow',
+        selector: 'calc-orb-chart-window'
     }],
 
 
@@ -33,11 +38,16 @@ Ext.define('Calc.controller.Orb', {
     {
         this.control({
             'calc-orb-grid': {
-                edit: this.calculate
+                edit: this.calculate,
+                itemcontextmenu: this.showContextMenu
             },
             'calc-orb-grid button[action="reset"]': {
                 click: this.reset
-            }         
+            },
+
+            'calc-orb-contextmenu menuitem[action="show-bar-chart"]': {
+                click: this.showBarChart
+            }
         });
     },
 
@@ -51,32 +61,9 @@ Ext.define('Calc.controller.Orb', {
     calculate: function(editor, e) 
     {
         var grid = e.grid,
-            store = grid.getStore(),
-            output = 0,
-            result = 0,
-            exceptions,
-            exceptionValue = 1;
-         
-        store.each(function(record) {
-            
-            output = 0;
-            exceptions = record.get('exceptions');
-            
-            store.each(function(record) {
+            store = grid.getStore();
 
-                //Does the orb has an exception?
-                if (exceptions.hasOwnProperty(record.getId())) {
-                    exceptionValue = exceptions[record.getId()];
-                } else {
-                    exceptionValue = 1;
-                }
-                 
-                output += record.get('inputAmount') * record.get('value') * exceptionValue;
-            });
-             
-            result = output / record.get('value');
-            record.set('outputAmount', result)
-        });
+        store.calculate();
     },
 
 
@@ -91,5 +78,45 @@ Ext.define('Calc.controller.Orb', {
             record.set('inputAmount', 0);
             record.set('outputAmount', 0);
         });
-    }  
+    },
+
+
+    /**
+     * Opens a contextmenu on the clicked record
+     *
+     * @param {Ext.view.View} gridView
+     * @param {Ext.data.Model} record
+     * @param {HTMLElement} htmlItem
+     * @param {Number} index
+     * @param {Ext.EventObject} event
+     */
+    showContextMenu: function(gridView, record, htmlItem, index, event)
+    {
+        var cm = this.getView('orb.ContextMenu').create({
+            record: record
+        });
+
+        event.stopEvent();
+
+        cm.showAt(event.getXY());
+    },
+
+
+    /**
+     * Opens a window with the bar shart of this orb
+     *
+     * @param {Ext.menu.Item} menuItem
+     */
+    showBarChart: function(menuItem)
+    {
+        var record = menuItem.parentMenu.getRecord(),
+            chartWindow = this.getView('orb.ChartWindow').create({
+                store: 'Calc.store.Orbs',
+                orb: record
+            });
+
+        chartWindow.calculate(function() {
+            chartWindow.show();
+        });
+    }
 });

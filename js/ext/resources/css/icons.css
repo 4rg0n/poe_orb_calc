@@ -10,6 +10,12 @@
  * 16px
  */
 
+.calc-icon-bar-chart {
+    background-image:url(../icon/16px/chart_bar.png);
+    height: 16px;
+    width: 16px;
+}
+
 .calc-icon-chaos-16px {
     background-image:url(../icon/16px/chaos.png);
     height: 16px; 
@@ -136,7 +142,7 @@
 .calc-icon-augmentation-48px {
     background-image:url(../icon/48px/augmentation.png);
     height: 48px; 
-    width: 16px;
+    width: 48px;
 }
 
 .calc-icon-alteration-48px {

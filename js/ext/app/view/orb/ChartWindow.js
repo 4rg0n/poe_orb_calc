@@ -42,14 +42,14 @@ Ext.define('Calc.view.orb.ChartWindow', {
             label: {
                 renderer: Ext.util.Format.numberRenderer('0,0')
             },
-            title: 'Amount',
+            title: Calc.Language.translate('amount', null, true),
             grid: true,
             minimum: 0
         }, {
             type: 'Category',
             position: 'left',
             fields: ['name'],
-            title: 'Orb Name'
+            title: Calc.Language.translate('Orb Name')
         }],
 
         theme: 'Category1',

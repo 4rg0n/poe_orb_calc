@@ -1,7 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <body>
     <lang>
-        <de>TEST DE</de>
-        <en>TEST EN</en>
+        <de>Menge</de>
+        <en>amount</en>
+    </lang>
+    <lang>
+        <de>Orb Name</de>
+        <en>Orb Name</en>
+    </lang>
+    <lang>
+        <de>Zeige Diagramm</de>
+        <en>Show Chart</en>
+    </lang>
+    <lang>
+        <de>Orb Berechnungs-Tabelle</de>
+        <en>Orb Calculator Table</en>
+    </lang>
+    <lang>
+        <de>Name</de>
+        <en>name</en>
+    </lang>
+    <lang>
+        <de>Name des Orbs</de>
+        <en>Name of the orb</en>
+    </lang>
+    <lang>
+        <de>Eingabe Menge</de>
+        <en>Input Amount</en>
+    </lang>
+    <lang>
+        <de>Die Menge an Orbs, die berechnet werden sollen</de>
+        <en>The amount of orbs you want to calculate</en>
+    </lang>
+    <lang>
+        <de>Ausgabe Menge</de>
+        <en>Output Amount</en>
+    </lang>
+    <lang>
+        <de>Das Ergebnis der Berechnung... Magic ^^</de>
+        <en>The result of the calculation... magic ^^</en>
+    </lang>
+    <lang>
+        <de>Wert</de>
+        <en>value</en>
+    </lang>
+    <lang>
+        <de>Der Wert für die Berechnung</de>
+        <en>The value used for calculation</en>
+    </lang>
+    <lang>
+        <de>Reset</de>
+        <en>reset</en>
+    </lang>
+    <lang>
+        <de>Einfacher DPS Rechner</de>
+        <en>Simple DPS Calculator</en>
+    </lang>
+    <lang>
+        <de>Formel</de>
+        <en>formula</en>
+    </lang>
+    <lang>
+        <de>Rechner</de>
+        <en>calculator</en>
+    </lang>
+    <lang>
+        <de>physischer Schaden</de>
+        <en>physical damage</en>
+    </lang>
+    <lang>
+        <de>Angriffsgeschwindigkeit</de>
+        <en>attack speed</en>
+    </lang>
+    <lang>
+        <de>DPS</de>
+        <en>DPS</en>
+    </lang>
+    <lang>
+        <de>Eingabeformat z.B.: {0}</de>
+        <en>input format e.g.: {0}</en>
+    </lang>
+    <lang>
+        <de>Klicke auf eine "Eingabe Menge" Zeile, um einen Wert einzugeben</de>
+        <en>Click on an "Input Amount" cell to input a value</en>
+    </lang>
+    <lang>
+        <de>Rechtsklick auf eine Orb Zeile, um ein Diagramm zu öffnen</de>
+        <en>Rightclick on an orb row to open a chart</en>
+    </lang>
+    <lang>
+        <de>Bei Änderungsvorschlägen für die Werte der Orbs, hinterlasse eine Nachricht im Thread {0}</de>
+        <en>For concerns about orb values please leave comments on thread {0}</en>
+    </lang>
+    <lang>
+        <de>Berechnungen basieren auf der {0}</de>
+        <en>Calculations base on the {0}</en>
+    </lang>
+    <lang>
+        <de></de>
+        <en></en>
+    </lang>
+    <lang>
+        <de></de>
+        <en></en>
+    </lang>
+    <lang>
+        <de></de>
+        <en></en>
     </lang>
 </body>

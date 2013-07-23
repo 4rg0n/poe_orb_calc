@@ -11,9 +11,12 @@ Calc.cssPrefix = 'calc-';
 Calc.appFolder = 'js/ext/app';
 
 Ext.application({
-
+    
+    uses: [
+        'Calc.view.Viewport'
+    ],
+    
     requires: [
-        'Calc.view.Viewport',
 
         //Singletons
         'Calc.library.language.Language',
@@ -37,8 +40,6 @@ Ext.application({
 
     launch: function()
     {
-        Calc.Language.init({}, function() {
-            Ext.create('Calc.view.Viewport');
-        });
+        Ext.create('Calc.view.Viewport');
     }
 });

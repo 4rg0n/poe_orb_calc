@@ -47,13 +47,22 @@ Ext.define('Calc.library.language.Language', {
      * @cfg {String/Ext.data.Store/Calc.library.language.Store} [store="Calc.library.language.Store"]
      */
     store: 'Calc.library.language.Store',
-
+    
+    
+    /**
+     * @constructor
+     */
+    constructor: function()
+    {
+        this.init();    
+    },
+    
 
     /**
      * init
      *
-     * @param {Object} config
-     * @param {Function} callback
+     * @param {Object} [config]
+     * @param {Function} [callback]
      */
     init: function(config, callback)
     {
@@ -64,7 +73,10 @@ Ext.define('Calc.library.language.Language', {
         this._setModelFields();
         this.load({
             callback: function() {
-                callback();
+                
+                if (callback) {
+                    callback();
+                }
             }
         });
     },
@@ -176,9 +188,9 @@ Ext.define('Calc.library.language.Language', {
     {
         var store = store || this.store || null;
 
-        if (Ext.isString(store) && !store.isStore) {
+        if (Ext.isString(store)) {
             store = Ext.create(store);
-        } else {
+        } else if (!store.isStore) {
             Ext.Error.raise('Language store could not instantiate.');
         }
 
@@ -193,10 +205,6 @@ Ext.define('Calc.library.language.Language', {
      */
     getStore: function()
     {
-        if (Ext.isEmpty(this.store)) {
-            this.setStore();
-        }
-
         return this.store;
     },
 
@@ -206,8 +214,9 @@ Ext.define('Calc.library.language.Language', {
      *
      * @param {String} string
      * @param {String[]/Object} [values]
+     * @param {Boolean} capitalize
      */
-    translate: function(string, values)
+    translate: function(string, values, capitalize)
     {
         var record = this.getStore().getById(string),
             values = values || null,
@@ -225,7 +234,11 @@ Ext.define('Calc.library.language.Language', {
             translatedString = new Ext.Template(translatedString);
             translatedString = translatedString.apply(values);
         }
-
+        
+        if (true === capitalize) {
+            translatedString = Ext.String.capitalize(translatedString);
+        }
+        
         return translatedString;
     },
 

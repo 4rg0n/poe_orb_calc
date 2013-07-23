@@ -12,7 +12,7 @@ Ext.define('Calc.view.orb.ContextMenu', {
     alias: 'widget.calc-orb-contextmenu',
 
     items: [{
-        text: 'Show Chart',
+        text: Calc.Language.translate('Show Chart'),
         iconCls: Calc.cssPrefix + 'icon-bar-chart',
         action: 'show-bar-chart'
     }]

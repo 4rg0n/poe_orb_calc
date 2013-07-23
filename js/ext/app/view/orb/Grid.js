@@ -16,7 +16,7 @@ Ext.define('Calc.view.orb.Grid', {
         'Calc.view.orb.InfoBox'
     ],
     
-    title: 'Orb Calculator Table',
+    title: Calc.Language.translate('Orb Calculator Table'),
     
     store: 'Orbs',
     
@@ -28,12 +28,12 @@ Ext.define('Calc.view.orb.Grid', {
         },
         tooltip: 'Icon of the orb'
     }, {
-        text: 'Name',
+        text: Calc.Language.translate('name', null, true),
         dataIndex: 'name',
         flex: 1,
-        tooltip: 'Name of the orb'
+        tooltip: Calc.Language.translate('Name of the orb')
     }, {
-        text: 'Input Amount',
+        text: Calc.Language.translate('Input Amount'),
         editor: {
             xtype: 'numberfield',
             value: 0,
@@ -41,21 +41,21 @@ Ext.define('Calc.view.orb.Grid', {
         },
         dataIndex: 'inputAmount',
         flex: 4,
-        tooltip: 'The amount of orbs you want to calculate',
+        tooltip: Calc.Language.translate('The amount of orbs you want to calculate'),
         tdCls: Calc.cssPrefix + 'input-cell'
     }, {
-        text: 'Output Amount',
+        text: Calc.Language.translate('Output Amount'),
         dataIndex: 'outputAmount',
         renderer: function(value) {
             return Ext.Number.toFixed(value, 2);
         },
         flex: 3,
-        tooltip: 'The result of the calculation... magic ^^'
+        tooltip: Calc.Language.translate('The result of the calculation... magic ^^')
     }, {
-        text: 'Value',
+        text: Calc.Language.translate('value', null, true),
         dataIndex: 'value',
         flex: 2,
-        tooltip: 'The value used for calculation'
+        tooltip: Calc.Language.translate('The value used for calculation')
     }],
     
     plugins: [
@@ -80,7 +80,7 @@ Ext.define('Calc.view.orb.Grid', {
         items: [{
             xtype: 'tbfill'
         }, {
-            text: '<b>Reset</b>',
+            text: '<b>' + Calc.Language.translate('reset', null, true) + '</b>',
             action: 'reset',
             width: 200
         },{

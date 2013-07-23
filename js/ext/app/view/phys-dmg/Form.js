@@ -11,13 +11,13 @@ Ext.define('Calc.view.phys-dmg.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.calc-phys-dmg-form',
 
-    title: 'DPS Calculator',
+    title: Calc.Language.translate('Simple DPS Calculator'),
 
     bodyPadding: 10,
 
     items: [{
         xtype: 'fieldset',
-        title: 'Formula',
+        title: Calc.Language.translate('formula', null, true),
         collapsible: true,
         collapsed: true,
 
@@ -36,24 +36,24 @@ Ext.define('Calc.view.phys-dmg.Form', {
         }]
     }, {
         xtype: 'fieldset',
-        title: 'Calculator',
+        title: Calc.Language.translate('calculator', null, true),
         defaultType: 'textfield',
 
         items: [{
             name: 'physical-damage',
-            fieldLabel: 'Physical damage',
+            fieldLabel: Calc.Language.translate('physical damage', null, true),
             emptyText: '0-0',
             maskRe: /[\d+\-]/,
             regex: /^\d+-\d+$/,
-            regexText: 'Input format e.g.: 10-51',
+            regexText: Calc.Language.translate('input format e.g.: {0}', ['10-51'], true),
             allowBlank: false
         }, {
             name: 'attack-speed',
             emptyText: '0.00',
-            fieldLabel: 'Attack speed',
+            fieldLabel: Calc.Language.translate('attack speed', null, true),
             maskRe: /[\d+\.]/,
             regex: /^\d+.\d+/,
-            regexText: 'Input format e.g.: 1.25',
+            regexText: Calc.Language.translate('input format e.g.: {0}', ['1.25'], true),
             allowBlank: false
         }, {
             xtype: 'tbspacer',
@@ -61,13 +61,13 @@ Ext.define('Calc.view.phys-dmg.Form', {
         }, {
             name: 'result',
             emptyText: '0',
-            fieldLabel: 'DPS',
+            fieldLabel: Calc.Language.translate('DPS'),
             readOnly: true
         }]
 
     }, {
         xtype: 'button',
-        text: 'Reset',
+        text: Calc.Language.translate('reset', null, true),
         action: 'reset',
         minWidth: 100
     }]

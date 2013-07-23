@@ -12,15 +12,15 @@ Calc.appFolder = 'js/ext/app';
 
 Ext.application({
     
-    uses: [
-        'Calc.view.Viewport'
-    ],
-    
     requires: [
 
         //Singletons
         'Calc.library.language.Language',
         'Calc.library.util.XTemplateRenderer'
+    ],
+    
+    uses: [
+        'Calc.view.Viewport'
     ],
 
     name: 'Calc',

@@ -15,6 +15,7 @@ Ext.application({
     requires: [
 
         //Singletons
+        'Calc.library.Base64',
         'Calc.library.language.Language',
         'Calc.library.service.Service',
         'Calc.library.util.XTemplateRenderer'
@@ -31,7 +32,8 @@ Ext.application({
     controllers: [
         'Orb',
         'PhysDmg',
-        'MainMenu'
+        'MainMenu',
+        'SkillTree'
     ],
 
 

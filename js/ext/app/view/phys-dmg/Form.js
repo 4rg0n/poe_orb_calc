@@ -38,6 +38,10 @@ Ext.define('Calc.view.phys-dmg.Form', {
         xtype: 'fieldset',
         title: Calc.Language.translate('calculator', null, true),
         defaultType: 'textfield',
+        
+        defaults: {
+            labelWidth: 150
+        },
 
         items: [{
             name: 'physical-damage',

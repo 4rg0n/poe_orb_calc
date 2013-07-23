@@ -26,6 +26,17 @@ Ext.define('Calc.library.language.Language', {
         'de': ['de', 'de-de', 'de-ch', 'de-at', 'de-lu', 'de-li'],
         'en': ['en', 'en-en', 'en-us', 'en-gb', 'en-au', 'en-ca', 'en-nz', 'en-ie', 'en-za', 'en-jm', 'en-bz', 'en-tt']
     },
+    
+    
+    /**
+     * Names of the language codes
+     * 
+     * @cfg {Object} languageNames 
+     */
+    languageNames: {
+        'de': 'German',
+        'en': 'English'
+    },
 
 
     /**
@@ -342,5 +353,34 @@ Ext.define('Calc.library.language.Language', {
     setCookie: function(lang)
     {
         Ext.util.Cookies.set(this.languageCookie, lang);
+    },
+    
+    /**
+     * Resturns all registred languages
+     * 
+     * @return {Object}
+     */
+    getLanguages: function()
+    {
+        var me = this,
+            langs = {};
+        
+        Ext.Object.each(this.languageMap, function(field) {
+            langs[field] = me.getLanguageName(field);
+        });
+        
+        return langs;
+    },
+    
+    
+    /**
+     * Returns the name of the language
+     * 
+     * @param {String} lang
+     * @return {String}
+     */
+    getLanguageName: function(lang)
+    {
+        return this.languageNames[lang];
     }
 });

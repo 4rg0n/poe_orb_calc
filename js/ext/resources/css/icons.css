@@ -16,6 +16,20 @@
     width: 16px;
 }
 
+.calc-icon-en {
+    background-image:url(../icon/16px/flags/en.png);
+    height: 11px;
+    width: 16px;
+    margin: 3px 0px 0px 0px;
+}
+
+.calc-icon-de {
+    background-image:url(../icon/16px/flags/de.png);
+    height: 11px;
+    width: 16px;
+    margin: 3px 0px 0px 0px;
+}
+
 .calc-icon-chaos-16px {
     background-image:url(../icon/16px/chaos.png);
     height: 16px; 

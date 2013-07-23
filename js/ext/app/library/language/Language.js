@@ -114,6 +114,28 @@ Ext.define('Calc.library.language.Language', {
 
         return this.language
     },
+    
+    
+    /**
+     * Sets the language
+     * 
+     * @param {String} lang
+     */
+    setLanguage: function(lang)
+    {
+        if (!this.hasLanguageMap(lang)) {
+            console.warn(
+                Ext.String.format(
+                    '[Language] "{0}" was not found in language map. This could cause problems.', 
+                    lang
+                )
+            );
+        }
+        
+        this.language = lang;
+        
+        this.initLanguage(this.language);
+    },
 
 
     /**
@@ -382,5 +404,33 @@ Ext.define('Calc.library.language.Language', {
     getLanguageName: function(lang)
     {
         return this.languageNames[lang];
+    },
+    
+    
+    /**
+     * Checks if a map exists for given language
+     * 
+     * @param {String} lang
+     * @return {Boolean}
+     */
+    hasLanguageMap: function(lang)
+    {
+        if (this.getLanguageMap(lang)) {
+            return true;
+        } 
+        
+        return false;
+    },
+    
+    
+    /**
+     * Return the language map for given language
+     * 
+     * @param {String} lang
+     * @return {String[]}
+     */
+    getLanguageMap: function(lang)
+    {
+        return this.languageMap[lang];
     }
 });

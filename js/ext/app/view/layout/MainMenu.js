@@ -40,6 +40,9 @@ Ext.define('Calc.view.layout.MainMenu', {
     }],
     
     
+    /**
+     * init
+     */
     initComponent: function()
     {
         this.callParent(arguments);
@@ -47,6 +50,10 @@ Ext.define('Calc.view.layout.MainMenu', {
         this.addLanguages();
     },
     
+    
+    /**
+     * Sets the flag for the language Button
+     */
     initLanguageButton: function()
     {
         var langButton = this.down('[itemId="language-button"]');
@@ -54,6 +61,10 @@ Ext.define('Calc.view.layout.MainMenu', {
         langButton.setIconCls(Calc.cssPrefix + 'icon-' + Calc.Language.getLanguage());
     },
     
+    
+    /**
+     * Adds all available languages to the menu
+     */
     addLanguages: function()
     {
         var langButton = this.down('[itemId="language-button"]'),
@@ -63,10 +74,10 @@ Ext.define('Calc.view.layout.MainMenu', {
         
         Ext.Object.each(langs, function(lang, langName) {
             langButton.menu.add({
-                text: Calc.Language.translate(langName),
+                text: Calc.Language.translate(langName, null, true),
                 iconCls: Calc.cssPrefix + 'icon-' + lang,
                 lang: lang,
-                action: 'change-language'
+                action: 'language-change'
             });
         });
     }

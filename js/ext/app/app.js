@@ -5,7 +5,7 @@
  */
 
 //TODO Besser machen?!
-var Calc = {};
+var Calc = Calc || {};
 
 Calc.cssPrefix = 'calc-';
 Calc.appFolder = 'js/ext/app';
@@ -16,6 +16,7 @@ Ext.application({
 
         //Singletons
         'Calc.library.language.Language',
+        'Calc.library.service.Service',
         'Calc.library.util.XTemplateRenderer'
     ],
     

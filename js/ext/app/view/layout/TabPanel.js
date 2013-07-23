@@ -13,7 +13,8 @@ Ext.define('Calc.view.layout.TabPanel', {
     
     requires: [
         'Calc.view.orb.Grid',
-        'Calc.view.phys-dmg.Form'
+        'Calc.view.phys-dmg.Form',
+        'Calc.view.adv-dmg.Form'
     ],
     
     id: 'calc-tabpanel',
@@ -25,5 +26,7 @@ Ext.define('Calc.view.layout.TabPanel', {
         xtype: 'calc-orb-grid'
     }, {
         xtype: 'calc-phys-dmg-form'
+    }, {
+        xtype: 'calc-adv-dmg-form'
     }]
 });

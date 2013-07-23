@@ -16,6 +16,7 @@ Ext.application({
         'Calc.view.Viewport',
 
         //Singletons
+        'Calc.library.language.Language',
         'Calc.library.util.XTemplateRenderer'
     ],
 
@@ -36,6 +37,8 @@ Ext.application({
 
     launch: function()
     {
-        Ext.create('Calc.view.Viewport');
+        Calc.Language.init({}, function() {
+            Ext.create('Calc.view.Viewport');
+        });
     }
 });

@@ -16,8 +16,7 @@ Ext.define('Calc.store.Orbs', {
         type: 'ajax',
         url: Calc.appFolder + '/data/orbs.json',
         reader: {
-            type: 'json',
-            root: 'orbs'
+            type: 'json'
         }
     },
 

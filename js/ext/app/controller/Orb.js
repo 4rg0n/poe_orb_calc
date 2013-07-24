@@ -41,8 +41,11 @@ Ext.define('Calc.controller.Orb', {
                 edit: this.calculate,
                 itemcontextmenu: this.showContextMenu
             },
-            'calc-orb-grid button[action="reset"]': {
-                click: this.reset
+            'calc-orb-grid button[action="reset-inputs"]': {
+                click: this.resetInputs
+            },
+            'calc-orb-grid button[action="reset-values"]': {
+                click: this.resetValues
             },
 
             'calc-orb-contextmenu menuitem[action="show-bar-chart"]': {
@@ -68,15 +71,28 @@ Ext.define('Calc.controller.Orb', {
 
 
     /**
-     * Resets all values
+     * Resets all inputs
      */
-    reset: function()
+    resetInputs: function()
     {
         var store = this.getOrbsStore();
         
         store.each(function(record) {
             record.set('inputAmount', 0);
             record.set('outputAmount', 0);
+        });
+    },
+
+
+    /**
+     * Resets all values
+     */
+    resetValues: function()
+    {
+        var store = this.getOrbsStore();
+
+        store.each(function(record) {
+            record.set('value', record.get('originalValue'));
         });
     },
 

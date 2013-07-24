@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <body>
-    <lang>
-        <de>Menge</de>
-        <en>amount</en>
-    </lang>
+
+<!-- Orb Chart -->
+
     <lang>
         <de>Orb Name</de>
         <en>Orb Name</en>
     </lang>
+
+
+<!-- Orbs Grid -->
+
     <lang>
         <de>Zeige Diagramm</de>
         <en>Show Chart</en>
@@ -15,10 +18,6 @@
     <lang>
         <de>Orb Berechnungs-Tabelle</de>
         <en>Orb Calculator Table</en>
-    </lang>
-    <lang>
-        <de>Name</de>
-        <en>name</en>
     </lang>
     <lang>
         <de>Name des Orbs</de>
@@ -49,21 +48,23 @@
         <en>The value used for calculation</en>
     </lang>
     <lang>
-        <de>Reset</de>
-        <en>reset</en>
+        <de>Eingaben Resetten</de>
+        <en>Reset Inputs</en>
     </lang>
+    <lang>
+        <de>Werte Resetten</de>
+        <en>Reset Values</en>
+    </lang>
+
+
+<!-- Simple DPS Calculator -->
+
     <lang>
         <de>Einfacher DPS Rechner</de>
         <en>Simple DPS Calculator</en>
     </lang>
-    <lang>
-        <de>Formel</de>
-        <en>formula</en>
-    </lang>
-    <lang>
-        <de>Rechner</de>
-        <en>calculator</en>
-    </lang>
+
+
     <lang>
         <de>physischer Schaden</de>
         <en>physical damage</en>
@@ -80,6 +81,10 @@
         <de>Eingabeformat z.B.: {0}</de>
         <en>input format e.g.: {0}</en>
     </lang>
+
+
+<!-- Grid InfoBox -->
+
     <lang>
         <de>Klicke auf eine "Eingabe Menge" Zeile, um einen Wert einzugeben</de>
         <en>Click on an "Input Amount" cell to input a value</en>
@@ -97,13 +102,22 @@
         <en>Calculations base on the {0}</en>
     </lang>
     <lang>
-        <de>Sprache</de>
-        <en>language</en>
+        <de>Die Werte können ebenso verändert werden indem man auf sie klickt</de>
+        <en>You can change the values too by clicking on them</en>
     </lang>
+
+
+<!-- Advanced DPS Calculator -->
+
     <lang>
         <de>Erweiterter DPS Rechner</de>
         <en>Advanced DPS Calculator</en>
     </lang>
+    <lang>
+        <de>Skill Tree URL</de>
+        <en>Skill Tree URL</en>
+    </lang>
+
 
 <!-- Languages -->    
     
@@ -114,5 +128,37 @@
     <lang>
         <de>englisch</de>
         <en>English</en>
+    </lang>
+
+
+<!-- Common -->
+
+    <lang>
+        <de>Sprache</de>
+        <en>language</en>
+    </lang>
+    <lang>
+        <de>Rechner</de>
+        <en>calculator</en>
+    </lang>
+    <lang>
+        <de>Formel</de>
+        <en>formula</en>
+    </lang>
+    <lang>
+        <de>Reset</de>
+        <en>reset</en>
+    </lang>
+    <lang>
+        <de>Name</de>
+        <en>name</en>
+    </lang>
+    <lang>
+        <de>Menge</de>
+        <en>amount</en>
+    </lang>
+    <lang>
+        <de>generieren</de>
+        <en>generate</en>
     </lang>
 </body>

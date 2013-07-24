@@ -1,3 +1,12 @@
+/**
+ * Skilltree Form
+ *
+ * @xtype calc-skilltree-form
+ *
+ * @class Calc.view.skilltree.Form
+ * @extends Ext.form.Panel
+ * @author Arg0n <argonthechecker@gmail.com>
+ */
 Ext.define('Calc.view.skilltree.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.calc-skilltree-form',
@@ -6,7 +15,7 @@ Ext.define('Calc.view.skilltree.Form', {
     
      bodyPadding: 10,
     
-    title: Calc.Language.translate('Skill Tree'),
+    title: Calc.Language.translate('Skill Tree') + ' (Beta)',
      
     items: [{
         xtype: 'fieldset',
@@ -16,7 +25,7 @@ Ext.define('Calc.view.skilltree.Form', {
         //TODO Regex Validierung
         items: [{
             name: 'skilltree-url',
-            fieldLabel: Calc.Language.translate('skilltree URL', null, true),
+            fieldLabel: Calc.Language.translate('Skill Tree URL'),
             allowBlank: false,
             width: 600
         }]
@@ -25,5 +34,11 @@ Ext.define('Calc.view.skilltree.Form', {
         text: Calc.Language.translate('generate', null, true),
         action: 'generate',
         formBind: true
+    }, {
+        //TODO Add more Container
+        xtype: 'container',
+        itemId: 'skills',
+        styleHtmlContent: true,
+        margin: 10
     }]
 })

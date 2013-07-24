@@ -12,6 +12,7 @@ Ext.define('Calc.model.Orb', {
         {name: 'id', type: 'string'}, 
         {name: 'name', type: 'string'},
         {name: 'value', type: 'float'},
+        {name: 'originalValue', type: 'float'},
         {name: 'inputAmount', type: 'int', defaultValue: 0},
         {name: 'outputAmount', type: 'float', defaultValue: 0.0},
         {name: 'exceptions', type: 'auto', defaultValue: {}},

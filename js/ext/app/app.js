@@ -44,6 +44,12 @@ Ext.application({
 
     launch: function()
     {
+        //TODO Bessere Lösung finden
+        Ext.apply(Ext.tip.QuickTipManager.getQuickTip(), {
+            maxWidth: 200,
+            minWidth: 100
+        });
+
         Ext.create('Calc.view.Viewport');
     }
 });

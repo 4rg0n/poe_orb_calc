@@ -53,9 +53,15 @@ Ext.define('Calc.view.orb.Grid', {
         tooltip: Calc.Language.translate('The result of the calculation... magic ^^')
     }, {
         text: Calc.Language.translate('value', null, true),
+        editor: {
+            xtype: 'numberfield',
+            value: 0.0,
+            minValue: 0.0
+        },
         dataIndex: 'value',
         flex: 2,
-        tooltip: Calc.Language.translate('The value used for calculation')
+        tooltip: Calc.Language.translate('The value used for calculation'),
+        tdCls: Calc.cssPrefix + 'input-cell'
     }],
     
     plugins: [
@@ -80,10 +86,14 @@ Ext.define('Calc.view.orb.Grid', {
         items: [{
             xtype: 'tbfill'
         }, {
-            text: '<b>' + Calc.Language.translate('reset', null, true) + '</b>',
-            action: 'reset',
+            text: '<b>' + Calc.Language.translate('Reset Inputs') + '</b>',
+            action: 'reset-inputs',
             width: 200
-        },{
+        }, {
+            text: '<b>' + Calc.Language.translate('Reset Values') + '</b>',
+            action: 'reset-values',
+            width: 200
+        }, {
             xtype: 'tbfill'
         }]
     }]

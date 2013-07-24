@@ -4,13 +4,18 @@
  * @class Calc.library.Base64
  * @singleton
  * @alternateClassName Calc.Base64
+ * @uses Calc.library.exception.Exception
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.Base64', {
     alternateClassName: 'Calc.Base64',
     
     singleton: true,
-    
+
+    uses: [
+        'Calc.library.exception.Exception'
+    ],
+
     padChar: '=',
     alpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"',
     
@@ -25,7 +30,7 @@ Ext.define('Calc.library.Base64', {
     {
         var idx = this.alpha.indexOf(s.charAt(i));
         if (idx === -1) {
-            throw "Cannot decode base64"
+            throw new Calc.Exception('Cannot decode base64');
         }
         return idx
     },
@@ -47,7 +52,7 @@ Ext.define('Calc.library.Base64', {
         }
         
         if (imax % 4 !== 0) {
-            throw "Cannot decode base64"
+            throw new Calc.Exception('Cannot decode base64');
         }
         
         if (s.charAt(imax - 1) === this.padChar) {
@@ -88,7 +93,7 @@ Ext.define('Calc.library.Base64', {
     {
         var x = s.charCodeAt(i);
         if (x > 255) {
-            throw "INVALID_CHARACTER_ERR: DOM Exception 5"
+            throw new Calc.Exception('INVALID_CHARACTER_ERR: DOM Exception 5');
         }
         return x
     },
@@ -101,7 +106,7 @@ Ext.define('Calc.library.Base64', {
     encode: function(s) 
     {
         if (arguments.length !== 1) {
-            throw "SyntaxError: exactly one argument required"
+            throw new Calc.Exception('SyntaxError: exactly one argument required');
         }
         
         s = String(s);

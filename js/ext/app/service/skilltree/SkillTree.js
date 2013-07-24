@@ -1,18 +1,18 @@
 /**
  * Skilltree Service
  *
- * @todo inlinedocu
- *
  * @class Calc.service.skilltree.SkillTree
  * @extends Calc.library.service.Abstract
  * @requires Calc.service.skilltree.node.Store
  * @uses Calc.library.Base64
+ * @uses Calc.library.exception.Exception
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.service.skilltree.SkillTree', {
     extend: 'Calc.library.service.Abstract',
 
     uses: [
+        'Calc.library.exception.Exception',
         'Calc.library.Base64'
     ],
 
@@ -20,13 +20,52 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         'Calc.service.skilltree.node.Store'
     ],
 
+    /**
+     * The current version of the passive skill tree
+     *
+     * @property {Number} currentTreeVersion
+     */
     currentTreeVersion: 2,
+
+
+    /**
+     * Tells if the SkillTree is finished loading data
+     *
+     * @property {Boolean} isReady
+     */
     isReady: false,
+
+
+    /**
+     * URL of Path of Exile website
+     *
+     * @cfg {String} poeUrl
+     */
     poeUrl: 'www.pathofexile.com',
+
+
+    /**
+     * URI to the passive skill tree
+     *
+     * @cfg {String} skillTreeUri
+     */
     skillTreeUri: 'passive-skill-tree',
 
+
+    /**
+     * Store with Skill Tree data
+     *
+     * @cfg {String/Calc.service.skilltree.node.Store}
+     */
     store: 'Calc.service.skilltree.node.Store',
 
+
+    /**
+     * init
+     *
+     * @param {Function} [callback]
+     * @returns {Boolean}
+     */
     init: function(callback)
     {
         var me = this;
@@ -55,15 +94,35 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         return false;
     },
 
+
+    /**
+     * Returns the Skill Tree nodes (store)
+     *
+     * @return {Ext.data.Store}
+     */
     getNodes: function() {
         return this.getStore();
     },
 
+
+    /**
+     * Returns the store with skill tree data
+     *
+     * @return {String/Ext.data.Store}
+     */
     getStore: function()
     {
         return this.store;
     },
 
+
+    /**
+     * Gets the Skills from URL
+     * Returns false if URL couldn't be encoded
+     *
+     * @param {String} url
+     * @returns {Boolean/Object}
+     */
     getSkillsFromUrl: function(url)
     {
         var hashCode = this.getHashCodeFromUrl(url);
@@ -71,10 +130,15 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         if (hashCode) {
             return this.encode(hashCode);
         }
-
-        return hashCode;
     },
 
+
+    /**
+     * Returns the hashcode of the URL
+     *
+     * @param {String} url
+     * @returns {Boolean/String}
+     */
     getHashCodeFromUrl: function(url)
     {
         var urlParts = url.split('/');
@@ -83,13 +147,25 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             return urlParts[4];
         }
 
-        return false;
+        throw new Calc.Exception('Invalid Url');
     },
 
+
+    /**
+     * Encodes the tree hash
+     *
+     * @param {String} hashCode
+     * @returns {{keystones: Array, notables: Array, miscs: Array, nodeStats: Array}}
+     */
     encode: function(hashCode)
     {
-        var base64Data = Calc.Base64.decode(hashCode.replace(/-/g, "+").replace(/_/g, "/")),
-            versionOffset = 0, 
+        try {
+            var base64Data = Calc.Base64.decode(hashCode.replace(/-/g, "+").replace(/_/g, "/"));
+        } catch(err) {
+            throw new Calc.Exception('Could not decode hash', err);
+        }
+
+        var versionOffset = 0,
             classOffset = 4, 
             hashesOffset = 6,
             treeVersion = this._readInt32(versionOffset, base64Data),
@@ -172,10 +248,19 @@ Ext.define('Calc.service.skilltree.SkillTree', {
                 nodeStats: nodeStats
             };
 
+        } else {
+            throw new Calc.Exception('Invalid skill tree version');
         }
     },
 
 
+    /**
+     * Replaces all number tokens ($) with the value
+     *
+     * @param {Object} nodeStats
+     * @returns {Object}
+     * @private
+     */
     _replaceNumberTokens: function(nodeStats)
     {
         var newObject = {},
@@ -202,7 +287,15 @@ Ext.define('Calc.service.skilltree.SkillTree', {
 
         return newObject;
     },
-    
+
+
+    /**
+     * @param {Number} arrURL
+     * @param {Number} position
+     * @param {String} dataString
+     * @returns {Number}
+     * @private
+     */
     _readInt: function(arrURL, position, dataString)
     {
         arrURL = arrURL || 4;
@@ -220,26 +313,50 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         
         return this._bytesToInt(n, arrURL);
     },
-    
-    
+
+
+    /**
+     * @param {Number} position
+     * @param {String} dataString
+     * @returns {Number}
+     * @private
+     */
     _readInt8: function(position, dataString)
     {
-      return this._readInt(1, position, dataString);
+        return this._readInt(1, position, dataString);
     },
-    
-    
+
+
+    /**
+     * @param {Number} position
+     * @param {String} dataString
+     * @returns {Number}
+     * @private
+     */
     _readInt16: function(position, dataString)
     {
       return this._readInt(2, position, dataString);
     },
-    
-    
+
+
+    /**
+     * @param {Number} position
+     * @param {String} dataString
+     * @returns {Number}
+     * @private
+     */
     _readInt32: function(position, dataString)
     {
       return this._readInt(4, position, dataString);
     },
-    
-    
+
+
+    /**
+     * @param {Number} arrURL
+     * @param {String} base64Data
+     * @returns {Number}
+     * @private
+     */
     _bytesToInt: function(arrURL, base64Data)
     {
         base64Data = base64Data || 4;
@@ -250,20 +367,38 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         return n;
     },
 
-    _pushNode: function(array, node)
+
+    /**
+     * Adds a node to the object
+     *
+     * @param {Object} object
+     * @param {Ext.data.Model/Calc.service.skilltree.node.Model} node
+     * @private
+     */
+    _pushNode: function(object, node)
     {
         var dn = node.get('dn');
 
-        if (array[dn] == undefined)
+        if (object[dn] == undefined)
         {
-            array[dn] = {};
-            array[dn].count = 0;
+            object[dn] = {};
+            object[dn].count = 0;
         }
 
-        array[dn].desc = node.get('sd').join('\n');
-        array[dn].count++;
+        object[dn].desc = node.get('sd').join('\n');
+        object[dn].icon = node.get('icon');
+
+        object[dn].count++;
     },
 
+
+    /**
+     * Sorts an object
+     *
+     * @param {Object} object
+     * @returns {Object}
+     * @private
+     */
     _sortObject: function(object)
     {
         var sortedKeys = [],

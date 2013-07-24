@@ -51,10 +51,11 @@ Ext.define('Calc.controller.SkillTree', {
     {
         var field = this.getUrlField(),
             skillContainer = this.getSkillContainer();
-
-        var skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
-
-        console.log(skills);
+        try {
+            var skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
+        } catch(err) {
+            err.log();
+        }
 
         skillContainer.update('Doesn\'t work yet, sorry =(');
     },

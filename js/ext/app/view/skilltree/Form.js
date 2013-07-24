@@ -5,15 +5,28 @@
  *
  * @class Calc.view.skilltree.Form
  * @extends Ext.form.Panel
+ * @requires Calc.view.skilltree.container.Info
+ * @requires Calc.view.skilltree.container.Miscs
+ * @requires Calc.view.skilltree.container.Keystones
+ * @requires Calc.view.skilltree.container.NodeStats
+ * @requires Calc.view.skilltree.container.Noteables
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.skilltree.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.calc-skilltree-form',
+
+    requires: [
+        'Calc.view.skilltree.container.Info',
+        'Calc.view.skilltree.container.Miscs',
+        'Calc.view.skilltree.container.Keystones',
+        'Calc.view.skilltree.container.NodeStats',
+        'Calc.view.skilltree.container.Notables'
+    ],
     
     closable: false,
     
-     bodyPadding: 10,
+    bodyPadding: 10,
     
     title: Calc.Language.translate('Skill Tree') + ' (Beta)',
      
@@ -35,10 +48,14 @@ Ext.define('Calc.view.skilltree.Form', {
         action: 'generate',
         formBind: true
     }, {
-        //TODO Add more Container
-        xtype: 'container',
-        itemId: 'skills',
-        styleHtmlContent: true,
-        margin: 10
+        xtype: 'calc-skilltree-container-info'
+    }, {
+        xtype: 'calc-skilltree-container-miscs'
+    }, {
+        xtype: 'calc-skilltree-container-noteables'
+    }, {
+        xtype: 'calc-skilltree-container-keystones'
+    }, {
+        xtype: 'calc-skilltree-container-node-stats'
     }]
 })

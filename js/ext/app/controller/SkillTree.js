@@ -19,8 +19,8 @@ Ext.define('Calc.controller.SkillTree', {
         ref: 'urlField',
         selector: 'calc-skilltree-form textfield[name="skilltree-url"]'
     }, {
-        ref: 'skillContainer',
-        selector: 'calc-skilltree-form container[itemId="skills"]'
+        ref: 'infoContainer',
+        selector: 'calc-skilltree-form calc-skilltree-container-info'
     }],
     
     services: {
@@ -50,14 +50,14 @@ Ext.define('Calc.controller.SkillTree', {
     generate: function()
     {
         var field = this.getUrlField(),
-            skillContainer = this.getSkillContainer();
+            infoContainer = this.getInfoContainer();
         try {
             var skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
         } catch(err) {
             err.log();
         }
 
-        skillContainer.update('Doesn\'t work yet, sorry =(');
+        infoContainer.update('Doesn\'t work yet, sorry =(');
     },
 
 

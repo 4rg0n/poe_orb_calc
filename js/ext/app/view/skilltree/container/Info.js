@@ -12,7 +12,7 @@ Ext.define('Calc.view.skilltree.container.Info', {
     alias: 'widget.calc-skilltree-container-info',
 
     loader: {
-        url: Calc.appFolder + '/template/skilltree/info.html',
+        url: Calc.appFolder + '/template/skilltree/Info.html',
         autoLoad: true,
         renderer: Calc.library.util.XTemplateRenderer.loader
     }

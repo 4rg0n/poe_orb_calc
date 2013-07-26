@@ -52,7 +52,7 @@ Ext.define('Calc.view.skilltree.Form', {
     }, {
         xtype: 'calc-skilltree-container-miscs'
     }, {
-        xtype: 'calc-skilltree-container-noteables'
+        xtype: 'calc-skilltree-container-notables'
     }, {
         xtype: 'calc-skilltree-container-keystones'
     }, {

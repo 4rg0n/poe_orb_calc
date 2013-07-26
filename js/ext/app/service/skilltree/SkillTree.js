@@ -55,9 +55,17 @@ Ext.define('Calc.service.skilltree.SkillTree', {
     /**
      * Store with Skill Tree data
      *
-     * @cfg {String/Calc.service.skilltree.node.Store}
+     * @cfg {String/Calc.service.skilltree.node.Store} store
      */
     store: 'Calc.service.skilltree.node.Store',
+
+
+    /**
+     * File Path for passive skilltree icons
+     *
+     * @cfg {String} skillIconsPath
+     */
+    skillIconsPath: 'Art/2DArt/SkillIcons/passives',
 
 
     /**
@@ -150,6 +158,20 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         throw new Calc.Exception('Invalid Url');
     },
 
+    getAllIcons: function()
+    {
+        var nodes = this.getNodes(),
+            icons = new Ext.util.MixedCollection();
+
+        nodes.each(function(node) {
+
+            if (false === icons.containsKey(node.get('icon'))) {
+                icons.add(node.get('icon'), node.get('icon'));
+            }
+        });
+
+        return icons;
+    },
 
     /**
      * Encodes the tree hash
@@ -386,7 +408,12 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         }
 
         object[dn].desc = node.get('sd').join('\n');
-        object[dn].icon = node.get('icon');
+        object[dn].icon = Calc.resourcesFolder + '/images/' + node.get('icon');
+
+        var iconFileNameParts = node.get('icon').split('/'),
+            iconFileName = iconFileNameParts[iconFileNameParts.length - 1];
+
+        object[dn].icon32 = Calc.resourcesFolder + '/images/' + this.skillIconsPath + '/32px/' + iconFileName;
 
         object[dn].count++;
     },

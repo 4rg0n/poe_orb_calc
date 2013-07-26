@@ -9,6 +9,7 @@ var Calc = Calc || {};
 
 Calc.cssPrefix = 'calc-';
 Calc.appFolder = 'js/ext/app';
+Calc.resourcesFolder = 'js/ext/resources';
 
 Ext.application({
     

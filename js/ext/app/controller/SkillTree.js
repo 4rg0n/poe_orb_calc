@@ -21,6 +21,18 @@ Ext.define('Calc.controller.SkillTree', {
     }, {
         ref: 'infoContainer',
         selector: 'calc-skilltree-form calc-skilltree-container-info'
+    }, {
+        ref: 'keystonesContainer',
+        selector: 'calc-skilltree-form calc-skilltree-container-keystones'
+    }, {
+        ref: 'miscsContainer',
+        selector: 'calc-skilltree-form calc-skilltree-container-miscs'
+    }, {
+        ref: 'nodeStatsContainer',
+        selector: 'calc-skilltree-form calc-skilltree-container-node-stats'
+    }, {
+        ref: 'notablesContainer',
+        selector: 'calc-skilltree-form calc-skilltree-container-notables'
     }],
     
     services: {
@@ -50,14 +62,19 @@ Ext.define('Calc.controller.SkillTree', {
     generate: function()
     {
         var field = this.getUrlField(),
-            infoContainer = this.getInfoContainer();
+            skills;
         try {
-            var skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
+            skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
         } catch(err) {
             err.log();
         }
 
-        infoContainer.update('Doesn\'t work yet, sorry =(');
+        this.update(skills);
+    },
+
+    update: function(skills)
+    {
+        console.log(skills);
     },
 
 

@@ -6,6 +6,7 @@
  * @requires Calc.service.skilltree.node.Store
  * @uses Calc.library.Base64
  * @uses Calc.library.exception.Exception
+ * @uses Calc.service.skilltree.node.Collection
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.service.skilltree.SkillTree', {
@@ -13,7 +14,8 @@ Ext.define('Calc.service.skilltree.SkillTree', {
 
     uses: [
         'Calc.library.exception.Exception',
-        'Calc.library.Base64'
+        'Calc.library.Base64',
+        'Calc.service.skilltree.node.Collection'
     ],
 
     requires: [
@@ -199,9 +201,9 @@ Ext.define('Calc.service.skilltree.SkillTree', {
                 position = hashesOffset,
                 totalValue = 0;
 
-            var keystones = [],
-                notables = [],
-                miscs = [],
+            var keystones = Ext.create('Calc.service.skilltree.node.Collection'),
+                notables = Ext.create('Calc.service.skilltree.node.Collection'),
+                miscs = Ext.create('Calc.service.skilltree.node.Collection'),
                 nodeStats = [];
 
             var currentId,
@@ -246,22 +248,6 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             nodeStats = this._sortObject(nodeStats);
 
             nodeStats = this._replaceNumberTokens(nodeStats);
-
-            Ext.Object.each(nodeStats, function(key, nodeStat) {
-                currentEffect = key;
-                totalValue = 0;
-
-                if (nodeStat.values.length > 0) {
-
-                    Ext.Array.each(nodeStat.values, function(value) {
-                        if (value != null) {
-                            totalValue += parseFloat(value);
-                        }
-                    });
-
-                    currentEffect = currentEffect.replace(/\$/g, totalValue);
-                }
-            });
 
             return {
                 keystones: keystones,
@@ -391,31 +377,35 @@ Ext.define('Calc.service.skilltree.SkillTree', {
 
 
     /**
-     * Adds a node to the object
+     * Adds a node to the collection
      *
-     * @param {Object} object
+     * @param {Calc.service.skilltree.node.Collection} collection
      * @param {Ext.data.Model/Calc.service.skilltree.node.Model} node
      * @private
      */
-    _pushNode: function(object, node)
+    _pushNode: function(collection, node)
     {
-        var dn = node.get('dn');
+        var name = node.get('dn'),
+            item;
 
-        if (object[dn] == undefined)
-        {
-            object[dn] = {};
-            object[dn].count = 0;
+        //Already exists?
+        if (false === collection.containsKey(name)) {
+
+            var iconFileNameParts = node.get('icon').split('/'),
+                iconFileName = iconFileNameParts[iconFileNameParts.length - 1];
+
+            item = collection.add(name, {
+                desc: node.get('sd'),
+                icon: Calc.resourcesFolder + '/image/' + node.get('icon'),
+                icon24: Calc.resourcesFolder + '/image/' + this.skillIconsPath + '/24px/' + iconFileName,
+                count: 0
+            });
+        } else {
+            item = collection.getByKey(name);
+            item.desc = node.get('sd').join('\n');
         }
 
-        object[dn].desc = node.get('sd').join('\n');
-        object[dn].icon = Calc.resourcesFolder + '/images/' + node.get('icon');
-
-        var iconFileNameParts = node.get('icon').split('/'),
-            iconFileName = iconFileNameParts[iconFileNameParts.length - 1];
-
-        object[dn].icon32 = Calc.resourcesFolder + '/images/' + this.skillIconsPath + '/32px/' + iconFileName;
-
-        object[dn].count++;
+        item.count++;
     },
 
 

@@ -74,7 +74,20 @@ Ext.define('Calc.controller.SkillTree', {
 
     update: function(skills)
     {
+        var infoCon = this.getInfoContainer(),
+            keystonesCon = this.getKeystonesContainer(),
+            miscsCon = this.getMiscsContainer(),
+            nodeStatsCon = this.getNodeStatsContainer(),
+            notablesCon = this.getNotablesContainer();
+
         console.log(skills);
+
+        keystonesCon.setData(skills.keystones, true);
+        miscsCon.setData(skills.miscs, true);
+        notablesCon.setData(skills.notables, true);
+
+        //TODO Bugged...
+        //nodeStatsCon.setData(skills.nodeStats, true);
     },
 
 

@@ -22,3 +22,85 @@ Loading Animation
     margin-left: -50px;
     margin-top: -50px;
 }
+
+/*
+SkillTree
+*/
+.calc-skilltree-list {
+    display: table;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    list-style-image: none;
+}
+
+.calc-skilltree-list:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.calc-skilltree-list-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 3px;
+    float: none;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+.calc-skilltree-list-quantity {
+    display: block;
+    height: 16px;
+    clear: both;
+    font-size: 11px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.calc-skilltree-figure {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.calc-skilltree-figure:before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.calc-skilltree-skill-icon {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.calc-skilltree-figure-keystone:before {
+    background: url("../image/Skilltree/keystone_frame.png") no-repeat center center;
+}
+
+.calc-skilltree-figure-notable:before {
+    background: url("../image/Skilltree/notable_frame.png") no-repeat center center;
+}
+
+.calc-skilltree-figure-misc:before {
+    background: url("../image/Skilltree/misc_frame.png") no-repeat center center;
+}
+
+

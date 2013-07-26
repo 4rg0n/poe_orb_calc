@@ -13,7 +13,6 @@ Ext.define('Calc.view.skilltree.container.Miscs', {
 
     loader: {
         url: Calc.appFolder + '/template/skilltree/Miscs.html',
-        autoLoad: true,
         renderer: Calc.library.util.XTemplateRenderer.loader
     }
 });

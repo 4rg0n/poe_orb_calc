@@ -13,7 +13,6 @@ Ext.define('Calc.view.skilltree.container.Keystones', {
 
     loader: {
         url: Calc.appFolder + '/template/skilltree/Keystones.html',
-        autoLoad: true,
         renderer: Calc.library.util.XTemplateRenderer.loader
     }
 });

@@ -85,7 +85,7 @@ Ext.define('Calc.controller.PhysDmg', {
             toDmg = parseInt(physDmgParts[1]);
             attackSpeed = parseFloat(attackSpeedField.getValue());
 
-            physDmg = fromDmg + toDmg / 2;
+            physDmg = (fromDmg + toDmg) / 2;
             dps = physDmg * attackSpeed;
         }
 

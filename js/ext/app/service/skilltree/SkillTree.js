@@ -199,12 +199,12 @@ Ext.define('Calc.service.skilltree.SkillTree', {
 
             var charClass = this._readInt8(classOffset, base64Data),
                 position = hashesOffset,
-                totalValue = 0;
+                item;
 
             var keystones = Ext.create('Calc.service.skilltree.node.Collection'),
                 notables = Ext.create('Calc.service.skilltree.node.Collection'),
                 miscs = Ext.create('Calc.service.skilltree.node.Collection'),
-                nodeStats = [];
+                nodeStats = Ext.create('Calc.service.skilltree.node.Collection');
 
             var currentId,
                 currentNode,
@@ -231,12 +231,20 @@ Ext.define('Calc.service.skilltree.SkillTree', {
                     currentEffect = sd.replace(numberParser, '$');
                     nodeValues = sd.match(numberParser);
 
-                    if (nodeStats[currentEffect] == undefined) {
-                        nodeStats[currentEffect] = {};
-                        nodeStats[currentEffect].values = [];
+                    if (false === nodeStats.containsKey(currentEffect)) {
+
+                        item = nodeStats.add(currentEffect, {
+                            effect: currentEffect,
+                            ks: currentNode.get('ks'),
+                            not: currentNode.get('not'),
+                            values: []
+                        });
+
+                    } else {
+                        item = nodeStats.getByKey(currentEffect);
                     }
 
-                    nodeStats[currentEffect].values = nodeStats[currentEffect].values.concat(nodeValues);
+                    Ext.Array.push(item.values, nodeValues);
                 });
 
                 position +=2;
@@ -265,18 +273,17 @@ Ext.define('Calc.service.skilltree.SkillTree', {
     /**
      * Replaces all number tokens ($) with the value
      *
-     * @param {Object} nodeStats
+     * @param {Calc.service.skilltree.node.Collection} nodeStats
      * @returns {Object}
      * @private
      */
     _replaceNumberTokens: function(nodeStats)
     {
-        var newObject = {},
-            currentEffect,
+        var currentEffect,
             totalValue = 0;
 
-        Ext.Object.each(nodeStats, function(key, nodeStat) {
-            currentEffect = key;
+        nodeStats.each(function(nodeStat) {
+            currentEffect = nodeStat.effect;
             totalValue = 0;
 
             if (false === Ext.isEmpty(nodeStat.values)) {
@@ -289,11 +296,11 @@ Ext.define('Calc.service.skilltree.SkillTree', {
 
                 currentEffect = currentEffect.replace(/\$/g, totalValue);
 
-                newObject[currentEffect] = nodeStat;
+                nodeStat.effect = currentEffect;
             }
         });
 
-        return newObject;
+        return nodeStats;
     },
 
 

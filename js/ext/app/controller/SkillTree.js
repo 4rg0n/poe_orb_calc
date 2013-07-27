@@ -49,10 +49,28 @@ Ext.define('Calc.controller.SkillTree', {
             'calc-skilltree-form button[action="generate"]': {
                 click: this.generate
             },
+            'calc-skilltree-form textfield[name="skilltree-url"]': {
+                specialkey: this.onKey
+            },
             'calc-skilltree-form': {
                 activate: this.loadNodes
             }
         });
+    },
+
+
+    /**
+     * When a key is pressed
+     * When key is ENTER, executes generate()
+     *
+     * @param {Ext.form.field.Text} field
+     * @param {Ext.EventObject} e
+     */
+    onKey: function(field, e)
+    {
+        if (e.getKey() == e.ENTER) {
+            this.generate();
+        }
     },
 
 
@@ -63,6 +81,7 @@ Ext.define('Calc.controller.SkillTree', {
     {
         var field = this.getUrlField(),
             skills;
+
         try {
             skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
         } catch(err) {
@@ -86,10 +105,34 @@ Ext.define('Calc.controller.SkillTree', {
         miscsCon.setData(skills.miscs, true);
         notablesCon.setData(skills.notables, true);
 
-        //TODO Bugged...
-        //nodeStatsCon.setData(skills.nodeStats, true);
+
+        var nodeStats = this._buildNodeStats(skills.nodeStats);
+
+        nodeStatsCon.setData(nodeStats, true);
     },
 
+
+    _buildNodeStats: function(nodeStats) {
+
+        var newNodeStats = {
+            keystones: [],
+            notables: [],
+            miscs: []
+        };
+
+        nodeStats.each(function(nodeStat) {
+
+            if (nodeStat.ks) {
+                newNodeStats.keystones.push(nodeStat);
+            } else if(nodeStat.not) {
+                newNodeStats.notables.push(nodeStat);
+            } else {
+                newNodeStats.miscs.push(nodeStat);
+            }
+        });
+
+        return newNodeStats;
+    },
 
     /**
      * Loads all Data about the Skilltree when tab is activated

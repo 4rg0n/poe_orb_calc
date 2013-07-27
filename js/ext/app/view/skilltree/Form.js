@@ -27,6 +27,7 @@ Ext.define('Calc.view.skilltree.Form', {
     closable: false,
     
     bodyPadding: 10,
+    autoScroll: true,
     
     title: Calc.Language.translate('Skill Tree') + ' (Beta)',
      

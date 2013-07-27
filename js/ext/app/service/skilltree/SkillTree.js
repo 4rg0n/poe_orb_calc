@@ -402,11 +402,14 @@ Ext.define('Calc.service.skilltree.SkillTree', {
                 iconFileName = iconFileNameParts[iconFileNameParts.length - 1];
 
             item = collection.add(name, {
+                name: name,
                 desc: node.get('sd'),
                 icon: Calc.resourcesFolder + '/image/' + node.get('icon'),
                 icon24: Calc.resourcesFolder + '/image/' + this.skillIconsPath + '/24px/' + iconFileName,
                 count: 0
             });
+
+            item.index = collection.indexOfKey(name);
         } else {
             item = collection.getByKey(name);
             item.desc = node.get('sd').join('\n');

@@ -46,10 +46,8 @@ Ext.application({
     launch: function()
     {
         //TODO Bessere Lösung finden
-        Ext.apply(Ext.tip.QuickTipManager.getQuickTip(), {
-            maxWidth: 200,
-            minWidth: 100
-        });
+        //Fixes autoWidth from tooltips... dirty one ^^
+        delete Ext.tip.Tip.prototype.minWidth;
 
         Ext.create('Calc.view.Viewport');
     }

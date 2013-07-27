@@ -7,7 +7,11 @@
  */
 Ext.define('Calc.controller.SkillTree', {
     extend: 'Calc.controller.Abstract',
-    
+
+    uses: [
+        'Ext.tip.QuickTip'
+    ],
+
     views: [
         'skilltree.Form'
     ],
@@ -99,16 +103,20 @@ Ext.define('Calc.controller.SkillTree', {
             nodeStatsCon = this.getNodeStatsContainer(),
             notablesCon = this.getNotablesContainer();
 
-        console.log(skills);
 
         keystonesCon.setData(skills.keystones, true);
-        miscsCon.setData(skills.miscs, true);
-        notablesCon.setData(skills.notables, true);
 
+        miscsCon.setData(skills.miscs, true);
+
+
+
+
+        notablesCon.setData(skills.notables, true);
 
         var nodeStats = this._buildNodeStats(skills.nodeStats);
 
         nodeStatsCon.setData(nodeStats, true);
+
     },
 
 
@@ -133,6 +141,7 @@ Ext.define('Calc.controller.SkillTree', {
 
         return newNodeStats;
     },
+
 
     /**
      * Loads all Data about the Skilltree when tab is activated

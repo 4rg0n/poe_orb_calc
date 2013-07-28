@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <body>
 
+<!-- Skill Tree -->
+
+    <lang>
+        <de>Skill Tree Url</de>
+        <en>Skill Tree Url</en>
+    </lang>
+    <lang>
+        <de>Berechne all das kranke Zeug...</de>
+        <en>Calculating all that crazy stuff...</en>
+    </lang>
+    <lang>
+        <de>Lade alle verdammt möglichen Baumknoten...</de>
+        <en>Loading all damn possible tree nodes...</en>
+    </lang>
+    <lang>
+        <de>Falsche Url</de>
+        <en>Inavlid Url</en>
+    </lang>
+    <lang>
+        <de>Falsche Skill Tree Version</de>
+        <en>Invalid skill tree version</en>
+    </lang>
+    <lang>
+        <de>Konnte Code nicht entschlüsseln</de>
+        <en>Could not decode hash</en>
+    </lang>
+
+
 <!-- Orb Chart -->
 
     <lang>

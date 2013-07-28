@@ -84,30 +84,37 @@ Ext.define('Calc.controller.SkillTree', {
     generate: function()
     {
         var field = this.getUrlField(),
+            form = this.getSkilltreeForm(),
             skills;
 
         try {
 
-            Ext.getBody().mask('Calculating all that crazy stuff...');
-
+            form.getEl().mask('Calculating all that crazy stuff...');
             skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
+            this.update(skills);
+
         } catch(err) {
 
-            Ext.getBody().unmask();
-
+            form.getEl().unmask();
+            this.error(err.getMsg());
             err.log();
         }
-
-        this.update(skills);
     },
 
+
+    /**
+     * Updates all Containers
+     *
+     * @param {Object} skills
+     */
     update: function(skills)
     {
         var infoCon = this.getInfoContainer(),
             keystonesCon = this.getKeystonesContainer(),
             miscsCon = this.getMiscsContainer(),
             nodeStatsCon = this.getNodeStatsContainer(),
-            notablesCon = this.getNotablesContainer();
+            notablesCon = this.getNotablesContainer(),
+            form = this.getSkilltreeForm();
 
 
         keystonesCon.setData(skills.keystones, true);
@@ -120,10 +127,17 @@ Ext.define('Calc.controller.SkillTree', {
 
         nodeStatsCon.setData(nodeStats, true);
 
-        Ext.getBody().unmask();
+        form.getEl().unmask();
     },
 
 
+    /**
+     * Maps the node stats for displaying
+     *
+     * @param {Calc.service.skilltree.node.Collection} nodeStats
+     * @returns {{keystones: Array, notables: Array, miscs: Array}}
+     * @private
+     */
     _buildNodeStats: function(nodeStats) {
 
         var newNodeStats = {

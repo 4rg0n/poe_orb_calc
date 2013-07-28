@@ -89,14 +89,14 @@ Ext.define('Calc.controller.SkillTree', {
 
         try {
 
-            form.getEl().mask('Calculating all that crazy stuff...');
+            form.getEl().mask(Calc.Language.translate('Calculating all that crazy stuff...'));
             skills = this.get('skilltree').getSkillsFromUrl(field.getValue());
             this.update(skills);
 
         } catch(err) {
 
             form.getEl().unmask();
-            this.error(err.getMsg());
+            this.error(Calc.Language.translate(err.getMsg()));
             err.log();
         }
     },
@@ -172,7 +172,7 @@ Ext.define('Calc.controller.SkillTree', {
 
         if (false === skillTreeService.isReady) {
 
-            form.getEl().mask('Loading all damn possibile tree nodes...');
+            form.getEl().mask('Loading all damn possible tree nodes...');
 
             skillTreeService.init(function() {
                 form.getEl().unmask();

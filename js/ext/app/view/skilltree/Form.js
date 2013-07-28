@@ -34,12 +34,11 @@ Ext.define('Calc.view.skilltree.Form', {
     items: [{
         xtype: 'fieldset',
         defaultType: 'textfield',
-        padding: 5,
+        padding: 10,
         
-        //TODO Regex Validierung
         items: [{
             name: 'skilltree-url',
-            fieldLabel: Calc.Language.translate('Skill Tree URL'),
+            fieldLabel: Calc.Language.translate('Skill Tree Url'),
             allowBlank: false,
             width: 600
         }]

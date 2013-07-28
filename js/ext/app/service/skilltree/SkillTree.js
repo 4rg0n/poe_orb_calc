@@ -319,7 +319,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             n = [];
         
         if (base64Data > dataString.length) {
-            throw 'Integer read exceeds bounds';
+            throw new Calc.Exception('Integer read exceeds bounds');
         }
         
         for (; position < base64Data; ++position) {

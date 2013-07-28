@@ -172,7 +172,7 @@ Ext.define('Calc.controller.SkillTree', {
 
         if (false === skillTreeService.isReady) {
 
-            form.getEl().mask('Loading all damn possible tree nodes...');
+            form.getEl().mask(Calc.Language.translate('Loading all damn possible tree nodes...'));
 
             skillTreeService.init(function() {
                 form.getEl().unmask();

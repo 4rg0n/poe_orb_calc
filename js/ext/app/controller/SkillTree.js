@@ -96,8 +96,13 @@ Ext.define('Calc.controller.SkillTree', {
         } catch(err) {
 
             form.getEl().unmask();
-            this.error(Calc.Language.translate(err.getMsg()));
-            err.log();
+
+            if (err instanceof Calc.library.exception.Exception) {
+                this.error(Calc.Language.translate(err.getMsg()));
+                err.log();
+            } else {
+                this.error(err);
+            }
         }
     },
 

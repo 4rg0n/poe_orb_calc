@@ -10,6 +10,24 @@
  * 16px
  */
 
+.calc-icon-info {
+    background-image:url(../icon/16px/info.png);
+    height: 16px;
+    width: 16px;
+}
+
+.calc-icon-error {
+    background-image:url(../icon/16px/error.png);
+    height: 16px;
+    width: 16px;
+}
+
+.calc-icon-warn {
+    background-image:url(../icon/16px/warn.png);
+    height: 16px;
+    width: 16px;
+}
+
 .calc-icon-bar-chart {
     background-image:url(../icon/16px/chart_bar.png);
     height: 16px;

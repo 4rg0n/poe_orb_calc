@@ -5,6 +5,7 @@
  * @extends Ext.container.Viewport
  * @requires Calc.view.layout.TabPanel
  * @requires Calc.view.layout.MainMenu
+ * @requires Calc.view.layout.NotificationBar
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.Viewport', {
@@ -12,7 +13,8 @@ Ext.define('Calc.view.Viewport', {
     
     requires: [
         'Calc.view.layout.TabPanel',
-        'Calc.view.layout.MainMenu'
+        'Calc.view.layout.MainMenu',
+        'Calc.view.layout.NotificationBar'
     ],
 
     layout: 'border',
@@ -23,5 +25,8 @@ Ext.define('Calc.view.Viewport', {
     }, {
         region: 'center',
         xtype: 'calc-tabpanel'
+    }, {
+        region: 'south',
+        xtype: 'calc-notification-bar'
     }]
 });

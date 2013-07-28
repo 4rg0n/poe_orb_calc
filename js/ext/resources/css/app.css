@@ -5,6 +5,26 @@
 }
 
 /*
+Message Box
+*/
+.calc-msg-box {
+    opacity: 0;
+}
+
+.calc-msg-box-msg {
+    float: left;
+}
+
+.calc-msg-box-icon {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    margin-right: 5px
+}
+
+
+/*
 Loading Animation
 */
 

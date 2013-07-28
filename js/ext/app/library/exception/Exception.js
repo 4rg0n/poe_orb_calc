@@ -105,7 +105,7 @@ Ext.define('Calc.library.exception.Exception', {
         var exceptions = [],
             currentException = this;
 
-        while(null !== currentException) {
+        while(currentException) {
             Ext.Array.push(exceptions, currentException);
 
             currentException = currentException.getPreviousException();

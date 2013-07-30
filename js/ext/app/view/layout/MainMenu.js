@@ -19,11 +19,29 @@ Ext.define('Calc.view.layout.MainMenu', {
     id: 'calc-main-menu',
 
     items: [{
+        iconCls: Calc.cssPrefix + 'icon-poe',
         text: 'Forum Post',
         href: 'http://www.pathofexile.com/forum/view-thread/441192'
     }, {
+        iconCls: Calc.cssPrefix + 'icon-github',
         text: 'GitHub',
         href: 'https://github.com/4rg0n/poe_orb_calc'
+    },, {
+        text: Calc.Language.translate('Useful Sites'),
+        xtype: 'splitbutton',
+        menu: {
+            items: [{
+                iconCls: Calc.cssPrefix + 'icon-link-go',
+                text: 'Exalting - Path of Exile',
+                href: 'http://www.exaltingpoe.com/',
+                hrefTarget: '_blank'
+            }, {
+                iconCls: Calc.cssPrefix + 'icon-link-go',
+                text: '6 Link Simulator',
+                href: 'http://poe6l.julycui.com/',
+                hrefTarget: '_blank'
+            }]
+        }
     }, {
         xtype: 'tbfill'
     }, {

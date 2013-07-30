@@ -6,9 +6,9 @@
 }
 
 
-/*
+/***********
  * 16px
- */
+ ***********/
 
 .calc-icon-info {
     background-image:url(../icon/16px/info.png);
@@ -34,6 +34,36 @@
     width: 16px;
 }
 
+.calc-icon-link {
+    background-image:url(../icon/16px/link.png);
+    height: 16px;
+    width: 16px;
+}
+
+.calc-icon-link-go {
+    background-image:url(../icon/16px/link_go.png);
+    height: 16px;
+    width: 16px;
+}
+
+.calc-icon-github {
+    background-image:url(../icon/16px/github.png);
+    height: 16px;
+    width: 16px;
+}
+
+.calc-icon-poe {
+    background-image:url(../icon/16px/poe.png);
+    height: 16px;
+    width: 16px;
+}
+
+
+/*
+Language Icons
+*/
+
+
 .calc-icon-en {
     background-image:url(../icon/16px/flags/en.png);
     height: 11px;
@@ -47,6 +77,11 @@
     width: 16px;
     margin: 3px 0px 0px 0px;
 }
+
+
+/*
+Orb Icons
+*/
 
 .calc-icon-chaos-16px {
     background-image:url(../icon/16px/chaos.png);

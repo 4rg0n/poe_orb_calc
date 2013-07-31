@@ -13,7 +13,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
     extend: 'Calc.library.service.Abstract',
 
     uses: [
-        'Calc.library.exception.Exception',
+        'Calc.service.skilltree.Exception',
         'Calc.library.Base64',
         'Calc.service.skilltree.node.Collection'
     ],
@@ -147,6 +147,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
      * Returns the hashcode of the URL
      *
      * @param {String} url
+     * @throws {Calc.service.skilltree.Exception}
      * @returns {Boolean/String}
      */
     getHashCodeFromUrl: function(url)
@@ -157,7 +158,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             return urlParts[4];
         }
 
-        throw new Calc.Exception('Invalid Url');
+        throw new Calc.service.skilltree.Exception('Invalid Url');
     },
 
     getAllIcons: function()
@@ -179,6 +180,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
      * Encodes the tree hash
      *
      * @param {String} hashCode
+     * @throws {Calc.service.skilltree.Exception}
      * @returns {{keystones: Array, notables: Array, miscs: Array, nodeStats: Array}}
      */
     encode: function(hashCode)
@@ -186,7 +188,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
         try {
             var base64Data = Calc.Base64.decode(hashCode.replace(/-/g, "+").replace(/_/g, "/"));
         } catch(err) {
-            throw new Calc.Exception('Could not decode hash', err);
+            throw new Calc.service.skilltree.Exception('Could not decode hash', err);
         }
 
         var versionOffset = 0,
@@ -265,7 +267,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             };
 
         } else {
-            throw new Calc.Exception('Invalid skill tree version');
+            throw new Calc.service.skilltree.Exception('Invalid skill tree version');
         }
     },
 
@@ -308,6 +310,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
      * @param {Number} arrURL
      * @param {Number} position
      * @param {String} dataString
+     * @throws {Calc.service.skilltree.Exception}
      * @returns {Number}
      * @private
      */
@@ -319,7 +322,7 @@ Ext.define('Calc.service.skilltree.SkillTree', {
             n = [];
         
         if (base64Data > dataString.length) {
-            throw new Calc.Exception('Integer read exceeds bounds');
+            throw new Calc.service.skilltree.Exception('Integer read exceeds bounds');
         }
         
         for (; position < base64Data; ++position) {

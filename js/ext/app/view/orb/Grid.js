@@ -6,6 +6,7 @@
  * @class Calc.view.orb.Grid
  * @extends Ext.grid.Panel
  * @requires Calc.view.orb.InfoBox
+ * @mixin Calc.library.mixin.tab.Tab
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.orb.Grid', {
@@ -15,7 +16,14 @@ Ext.define('Calc.view.orb.Grid', {
     requires: [
         'Calc.view.orb.InfoBox'
     ],
-    
+
+    mixins: [
+        'Calc.library.mixin.tab.Tab'
+    ],
+
+    tabId: 'calc-orb-grid',
+    routeId: 'calc-orb-grid',
+
     title: Calc.Language.translate('Orb Calculator Table'),
     
     store: 'Orbs',

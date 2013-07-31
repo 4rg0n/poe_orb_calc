@@ -5,11 +5,19 @@
  *
  * @class Calc.view.phys-dmg.Form
  * @extends Ext.form.Panel
+ * @mixin Calc.library.mixin.tab.Tab
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.phys-dmg.Form', {
     extend: 'Ext.form.Panel',
     alias: 'widget.calc-phys-dmg-form',
+
+    mixins: [
+        'Calc.library.mixin.tab.Tab'
+    ],
+
+    tabId: 'calc-phys-dmg-form',
+    routeId: 'calc-phys-dmg-form',
 
     title: Calc.Language.translate('Simple DPS Calculator'),
 

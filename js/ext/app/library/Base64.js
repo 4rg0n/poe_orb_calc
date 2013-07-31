@@ -22,9 +22,10 @@ Ext.define('Calc.library.Base64', {
     /**
      * @private
      * 
-     * @param {} s
-     * @param {} i
-     * @return {}
+     * @param {String} s
+     * @param {Number} i
+     * @throws {Calc.Exception}
+     * @return {Number}
      */
     _getbyte64: function(s, i) 
     {
@@ -37,8 +38,9 @@ Ext.define('Calc.library.Base64', {
     
     
     /**
-     * @param {} s
-     * @return {}
+     * @param {String} s
+     * @throws {Calc.Exception}
+     * @return {String}
      */
     decode: function (s) 
     {
@@ -85,9 +87,10 @@ Ext.define('Calc.library.Base64', {
     /**
      * @private
      * 
-     * @param {} s
-     * @param {} i
-     * @return {}
+     * @param {String} s
+     * @param {Number} i
+     * @throws {Calc.Exception}
+     * @return {Number}
      */
     _getbyte: function(s, i) 
     {
@@ -100,8 +103,9 @@ Ext.define('Calc.library.Base64', {
     
     /**
      * 
-     * @param {} s
-     * @return {}
+     * @param {String} s
+     * @throws {Calc.Exception}
+     * @return {String}
      */
     encode: function(s) 
     {

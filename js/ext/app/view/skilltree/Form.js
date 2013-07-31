@@ -10,6 +10,7 @@
  * @requires Calc.view.skilltree.container.Keystones
  * @requires Calc.view.skilltree.container.NodeStats
  * @requires Calc.view.skilltree.container.Noteables
+ * @mixin Calc.library.mixin.tab.Tab
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.skilltree.Form', {
@@ -23,7 +24,14 @@ Ext.define('Calc.view.skilltree.Form', {
         'Calc.view.skilltree.container.NodeStats',
         'Calc.view.skilltree.container.Notables'
     ],
-    
+
+    mixins: [
+        'Calc.library.mixin.tab.Tab'
+    ],
+
+    tabId: 'calc-skilltree-form',
+    routeId: 'calc-skilltree-form',
+
     closable: false,
     
     bodyPadding: 10,

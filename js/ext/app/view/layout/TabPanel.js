@@ -34,5 +34,41 @@ Ext.define('Calc.view.layout.TabPanel', {
         xtype: 'calc-adv-dmg-form'
     }, {
         xtype: 'calc-skilltree-form'
-    }]
+    }],
+    
+    
+    /**
+     * Adds a tab to the tab panel
+     * If the tab is already present, it will be activated instead.
+     * 
+     * @param {Ext.Component} component
+     */
+    addTab: function(component)
+    {
+        
+    },
+    
+    
+    /**
+     * Checks if the tab is present in the tabpanel
+     * 
+     * @param {String/Ext.Component} key - the component or the tabId of the component
+     * @return {Boolean}
+     */
+    hasTab: function(key) 
+    {
+        
+    },
+    
+    
+    /**
+     * Returns the tab with the given tabId
+     * 
+     * @param {String} tabId
+     * @return {Ext.tab.Tab}
+     */
+    getTab: function(tabId)
+    {
+        
+    }
 });

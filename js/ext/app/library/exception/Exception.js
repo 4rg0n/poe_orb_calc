@@ -12,7 +12,11 @@ Ext.define('Calc.library.exception.Exception', {
     alternateClassName: 'Calc.Exception',
 
     isException: true,
-
+    
+    name: 'Uncaught Exception',
+    
+    stack: null,
+    
     /**
      * Exception message
      *
@@ -39,8 +43,8 @@ Ext.define('Calc.library.exception.Exception', {
     {
         this.message = msg || this.message;
         this.previousException = previousException;
+        this.stack = this.buildStack(this.getStackTrace());
     },
-
 
     /**
      * Returns the message
@@ -51,8 +55,7 @@ Ext.define('Calc.library.exception.Exception', {
     {
         return this.message;
     },
-
-
+    
     /**
      * Returns the previous thrown exception
      *
@@ -61,6 +64,32 @@ Ext.define('Calc.library.exception.Exception', {
     getPreviousException: function()
     {
         return this.previousException;
+    },
+    
+    
+    /**
+     * Gets the stack trace
+     * 
+     * @return {String}
+     */
+    getStackTrace: function() {
+        var obj = {};
+        
+        Error.captureStackTrace(obj, this.getStackTrace);
+        
+        return obj.stack;
+    },
+    
+    
+    /**
+     * Builds the stack trace to an array
+     * 
+     * @param {String} stackTrace
+     * @return {String[]}
+     */
+    buildStack: function(stackTrace)
+    {
+        return stackTrace.split('\n');
     },
 
 

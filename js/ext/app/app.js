@@ -16,6 +16,7 @@ Ext.application({
     requires: [
 
         //Singletons
+        'Calc.library.error.ErrorManager',
         'Calc.library.Base64',
         'Calc.library.language.Language',
         'Calc.library.service.Service',
@@ -37,7 +38,14 @@ Ext.application({
         'MainMenu',
         'SkillTree'
     ],
-
+    
+    constructor: function()
+    {
+        Ext.Error.handle = this.onError;
+        
+        this.callParent();
+    },
+    
     init: function()
     {
         Calc.app = this;
@@ -50,5 +58,33 @@ Ext.application({
         delete Ext.tip.Tip.prototype.minWidth;
 
         Ext.create('Calc.view.Viewport');
+    },
+    
+    
+    onError: function(err)
+    {
+        console.log('muuuuuuuuuuuh');
+        
+        if (Ext.isString(err)) {
+            
+        }
+        
+        if (err instanceof Ext.Error) {
+            
+        }
+        
+        if (err instanceof Calc.library.exception.Exception)
+        {
+            err.log();
+        }
+        
+        if (err instanceof Error)
+        {
+            
+        }
+        
+        return true;
     }
 });
+
+

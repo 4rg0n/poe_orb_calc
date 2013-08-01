@@ -45,15 +45,17 @@ Ext.define('Calc.controller.Orb', {
                 click: this.resetInputs
             },
             'calc-orb-grid button[action="reset-values"]': {
-                click: this.resetValues
+                click: this.resetValues 
             },
 
             'calc-orb-contextmenu menuitem[action="show-bar-chart"]': {
                 click: this.showBarChart
             }
         });
-
-        throw new Calc.library.exception.Exception('test');
+        
+        Calc.ErrorManager.show(new Error('muh'));
+        Calc.ErrorManager.show(new Ext.Error('muh'));
+        Calc.ErrorManager.show(new Calc.library.exception.Exception('muh'));
     },
 
 

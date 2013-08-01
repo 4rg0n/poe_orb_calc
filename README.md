@@ -4,7 +4,7 @@ Path of Exile Orb Calculator
 What is it?
 -----------
 
-Basicly it was only a table to calculate the exchange rates for various orbs in Path of Exile.
+Basicly it was only a table to calculate the exchange rates for various orbs in [Path of Exile](http://www.pathofexile.com/).
 But I decided to promote the project. So some extra features were added like a simple DPS calculator and
 a Skill Tree calculator. There are more features to come and alot of other stuff is in the pipeline. 
 So stay tuned =) 

@@ -2,19 +2,23 @@
  * Basic Exception Class
  *
  * @class Calc.library.exception.Exception
+ * @extends Error
  * @alternateClassName Calc.Exception
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.exception.Exception', {
+    extend: 'Error',
 
     alternateClassName: 'Calc.Exception',
+
+    isException: true,
 
     /**
      * Exception message
      *
-     * @cfg {String} [msg="Exception"]
+     * @cfg {String} [message="Exception"]
      */
-    msg: 'Exception',
+    message: 'Exception',
 
 
     /**
@@ -33,7 +37,7 @@ Ext.define('Calc.library.exception.Exception', {
      */
     constructor: function(msg, previousException)
     {
-        this.msg = msg || this.msg;
+        this.message = msg || this.message;
         this.previousException = previousException;
     },
 
@@ -45,7 +49,7 @@ Ext.define('Calc.library.exception.Exception', {
      */
     getMsg: function()
     {
-        return this.msg;
+        return this.message;
     },
 
 

@@ -52,6 +52,8 @@ Ext.define('Calc.controller.Orb', {
                 click: this.showBarChart
             }
         });
+
+        throw new Calc.library.exception.Exception('test');
     },
 
 

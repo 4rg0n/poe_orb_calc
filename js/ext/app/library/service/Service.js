@@ -4,13 +4,19 @@
  * @singleton 
  *  
  * @class Calc.library.service.Service
+ * @uses Calc.library.service.Exception
+ * @requires Calc.library.service.ControllerInjection
  * @requires Calc.library.service.Store
  * @alternateClassName Calc.Service
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.service.Service', {
     alternateClassName: 'Calc.Service',
-    
+
+    uses: [
+        'Calc.library.service.Exception'
+    ],
+
     requires: [
         'Calc.library.service.ControllerInjection',
         'Calc.library.service.Store'
@@ -47,7 +53,7 @@ Ext.define('Calc.library.service.Service', {
      * @example
      *
      *  addAll({
-     *      image: 'Utmt.service.Image',
+     *      image: 'Calc.service.Image',
      *      foo: 'Bar',
      *      bar: {
      *          className: 'Foo',
@@ -85,7 +91,7 @@ Ext.define('Calc.library.service.Service', {
      * @param {String} className
      * @param {Object} [config]
      * @param {*} [scope]
-     * @return {Utmt.library.service.Service}
+     * @return {Calc.library.service.Service}
      */
     add: function(key, className, config, scope)
     {
@@ -144,7 +150,7 @@ Ext.define('Calc.library.service.Service', {
      * Returns all records with that key
      *
      * @param {String} key
-     * @return {Utmt.library.service.Model[]}
+     * @return {Calc.library.service.Model[]}
      */
     findAllByKey: function(key)
     {
@@ -164,7 +170,7 @@ Ext.define('Calc.library.service.Service', {
      * Returns all records with that scope
      *
      * @param {Mixed} scope
-     * @return {Utmt.library.service.Model[]}
+     * @return {Calc.library.service.Model[]}
      */
     findAllByScope: function(scope) {
         var records = [];
@@ -183,7 +189,7 @@ Ext.define('Calc.library.service.Service', {
     /**
      * Instanciate a service from model
      *
-     * @param {Utmt.library.service.Model} model
+     * @param {Calc.library.service.Model} model
      * @return {Mixed}
      */
     create: function(model) {
@@ -260,12 +266,14 @@ Ext.define('Calc.library.service.Service', {
      * @param {String} key
      * @param {Mixed} [scope]
      * @param {Boolean} [forceScope=false] force search with scope
+     * @throws {Calc.service.Exception}
      * @return {Mixed}
      */
     getService: function(key, scope, forceScope)
     {
         var service = null,
-            forceScope = forceScope || false;
+            forceScope = forceScope || false,
+            serviceModel;
         
         if (scope) {
             serviceModel = this.find(key, scope);
@@ -276,8 +284,7 @@ Ext.define('Calc.library.service.Service', {
         } 
         
         if (!serviceModel) {
-            console.warn(Language.translate('Service "{0}" not found.', [key]));
-            return null;
+            throw new Calc.service.Exception(Ext.String.format('Service "{0}" not found.', key));
         }
         
         //Service already instanciated?

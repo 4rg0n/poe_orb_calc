@@ -31,12 +31,12 @@ Ext.application({
     appFolder: Calc.appFolder,
     
     controllers: [
+        'Error',
         'Orb',
         'PhysDmg',
         'MainMenu',
         'SkillTree'
     ],
-
 
     init: function()
     {

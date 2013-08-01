@@ -15,7 +15,11 @@ Ext.define('Calc.library.social.button.Twitter', {
     
     constructor: function()
     {
-        this.initButton();
+        //Only load in prod envorinment
+        if (Calc.env == 'prod') {
+            this.initButton();
+        }
+
         this.callParent(arguments);
     },
     

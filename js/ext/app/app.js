@@ -4,12 +4,35 @@
  * @author Arg0n <argonthechecker@gmail.com>
  */
 
-//TODO Besser machen?!
 var Calc = Calc || {};
+(function()  {
 
-Calc.cssPrefix = 'calc-';
-Calc.appFolder = 'js/ext/app';
-Calc.resourcesFolder = 'js/ext/resources';
+    Ext.apply(Calc, {
+        cssPrefix: 'calc-',
+        appFolder:'js/ext/app',
+        resourcesFolder: 'js/ext/resources'
+    });
+
+
+    /**
+     * Reads the current environment from hash
+     *
+     * @returns {String}
+     */
+    Calc.getEnv = function()
+    {
+        var el = document.getElementById('calc-app'),
+            env = 'prod';
+
+        if (el) {
+            env = el.attributes.getNamedItem('src').value.split('#')[1] || env;
+        }
+
+        return env;
+    }
+
+    Calc.env = Calc.getEnv();
+}());
 
 Ext.application({
     
@@ -46,7 +69,7 @@ Ext.application({
     constructor: function()
     {
         Ext.Error.handle = this.onError;
-        
+
         this.callParent();
     },
     
@@ -70,6 +93,7 @@ Ext.application({
         
     }
 });
+
 
 
 

@@ -23,7 +23,7 @@ Ext.define('Calc.view.error.Window', {
      */
     type: null,
     
-    iconCls: 'icon-error',
+    iconCls: Calc.cssPrefix + 'icon-error',
 
     alias: 'widget.calc-error-window',
     itemId: 'calc-error-window',

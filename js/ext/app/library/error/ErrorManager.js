@@ -43,12 +43,11 @@ Ext.define('Calc.library.error.ErrorManager', {
             asWindow = asWindow || false,
             request;
             
-            console.log(object, error);
-            
         if (true === asWindow) {
             this._showWindow(error);
         } else {
             
+            //TODO Routing =)
             //request = this.buildErrorRequest(error)
             
             //Calc.Routing.execRequest(request);

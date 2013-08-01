@@ -21,7 +21,7 @@ Ext.define('Calc.view.error.Error', {
     
     header: false,
     
-    iconCls: 'icon-error',
+    iconCls: Calc.cssPrefix + 'icon-error',
 
     alias: 'widget.calc-error-error',
     tabId: 'calc-error-error',

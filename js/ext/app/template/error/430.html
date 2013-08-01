@@ -1,3 +1,9 @@
 <h2>{title}</h2>
 <p><b>{type} {errorMsg}</b></p>
 <p>{msg}</p>
+<tpl if="showStack &amp;&amp; stack.length &gt; 0">
+    <h3>Stack</h3>
+    <tpl for="stack">
+        {.}<br>
+    </tpl>
+</tpl>

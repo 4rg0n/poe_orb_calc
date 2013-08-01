@@ -52,10 +52,6 @@ Ext.define('Calc.controller.Orb', {
                 click: this.showBarChart
             }
         });
-        
-        Calc.ErrorManager.show(new Error('muh'));
-        Calc.ErrorManager.show(new Ext.Error('muh'));
-        Calc.ErrorManager.show(new Calc.library.exception.Exception('muh'));
     },
 
 

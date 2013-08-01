@@ -2,6 +2,7 @@
  * Error Class
  *
  * @class Calc.library.error.Error
+ * @uses Calc.library.language.Language
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.error.Error', {
@@ -13,7 +14,7 @@ Ext.define('Calc.library.error.Error', {
     /**
      * Own error message
      * 
-     * @cfg {String} msg
+     * @cfg {String} [msg]
      */
     msg: null,
     
@@ -52,10 +53,26 @@ Ext.define('Calc.library.error.Error', {
     /**
      * Error stack
      * 
-     * @cfg {String[]}
+     * @cfg {String[]} [stack]
      */
     stack: [],
-
+    
+    
+    /**
+     * true to display the stack in the error template
+     * 
+     * @cfg {Boolean} [showStack=false]
+     */
+    showStack: false,
+    
+    
+    /**
+     * true to log the stack automaticly
+     * 
+     * @cfg {Boolean} [logStack=false]
+     */
+    logStack: false,
+    
     
     /**
      * @constructor
@@ -76,6 +93,10 @@ Ext.define('Calc.library.error.Error', {
     {
         this.buildErrorMsg();
         this.buildMessage();
+        
+        if (this.logStack) {
+            this.log();
+        }
     },
     
     
@@ -163,7 +184,8 @@ Ext.define('Calc.library.error.Error', {
             type: this.getType(),
             errorMsg: this.getErrorMsg(),
             msg: this.getMessage(),
-            stack: this.getStack()
+            stack: this.getStack(),
+            showStack: this.showStack
         }
     },
     
@@ -181,6 +203,7 @@ Ext.define('Calc.library.error.Error', {
     
     /**
      * Returns the error stack
+     * If asString is true it will be returned as a string =D
      * 
      * @param {Boolean} [asString=false]
      * @return {String}
@@ -251,6 +274,14 @@ Ext.define('Calc.library.error.Error', {
         return msg;
     },
     
+    
+    /**
+     * logs the stack to the console
+     */
+    log: function()
+    {
+        Ext.global.console.error(this.getStack(true));    
+    },
     
     /**
      * Returns http error message

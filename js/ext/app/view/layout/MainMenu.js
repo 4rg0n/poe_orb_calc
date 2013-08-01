@@ -12,6 +12,12 @@ Ext.define('Calc.view.layout.MainMenu', {
     extend: 'Ext.toolbar.Toolbar',
     alias: 'widget.calc-main-menu',
     
+    requires: [
+        'Calc.library.social.button.Twitter',
+        'Calc.library.social.button.Facebook',
+        'Calc.library.social.button.GooglePlus'
+    ],
+    
     uses: [
         'Ext.menu.Menu'
     ],
@@ -26,7 +32,7 @@ Ext.define('Calc.view.layout.MainMenu', {
         iconCls: Calc.cssPrefix + 'icon-github',
         text: 'GitHub',
         href: 'https://github.com/4rg0n/poe_orb_calc'
-    },, {
+    }, {
         text: Calc.Language.translate('Useful Sites'),
         xtype: 'splitbutton',
         menu: {
@@ -42,6 +48,23 @@ Ext.define('Calc.view.layout.MainMenu', {
                 hrefTarget: '_blank'
             }]
         }
+    }, {
+        xtype: 'tbseparator',
+        margin: '0 10 0 0'
+    }, {
+        xtype: 'calc-twitter-button',
+        height: 22,
+        width: 85
+    }, {
+        xtype: 'calc-facebook-button',
+        height: 22,
+        width: 100,
+        margin: 2
+    }, {
+        xtype: 'calc-googleplus-button',
+        height: 22,
+        width: 100,
+        margin: 2
     }, {
         xtype: 'tbfill'
     }, {

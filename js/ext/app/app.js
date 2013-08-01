@@ -13,6 +13,10 @@ Calc.resourcesFolder = 'js/ext/resources';
 
 Ext.application({
     
+    paths: {
+        'Ext.ux': 'js/ext/ux'
+    },
+    
     requires: [
 
         //Singletons
@@ -63,28 +67,9 @@ Ext.application({
     
     onError: function(err)
     {
-        console.log('muuuuuuuuuuuh');
         
-        if (Ext.isString(err)) {
-            
-        }
-        
-        if (err instanceof Ext.Error) {
-            
-        }
-        
-        if (err instanceof Calc.library.exception.Exception)
-        {
-            err.log();
-        }
-        
-        if (err instanceof Error)
-        {
-            
-        }
-        
-        return true;
     }
 });
+
 
 

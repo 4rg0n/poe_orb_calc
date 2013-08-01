@@ -15,7 +15,7 @@ var Calc = Calc || {};
 
 
     /**
-     * Reads the current environment from hash
+     * Reads the current environment from script src hash
      *
      * @returns {String}
      */

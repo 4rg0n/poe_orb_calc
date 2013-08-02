@@ -44,7 +44,8 @@ Ext.define('Calc.library.error.handler.Exception', {
             var options = {
                 msg: exception.getMsg(),
                 type: 430,
-                stack: this.buildStack(exception)
+                stack: this.buildStack(exception),
+                originalObject: exception
             };
                        
             return options;

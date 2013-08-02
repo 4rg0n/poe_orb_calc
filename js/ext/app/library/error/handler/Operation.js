@@ -51,6 +51,7 @@ Ext.define('Calc.library.error.handler.Operation', {
                 options.type = operation.getError().status;
             }
             
+            options.originalObject = operation;
             options.stack = this.buildStack();
             
             return options;

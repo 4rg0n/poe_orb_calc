@@ -75,6 +75,14 @@ Ext.define('Calc.library.error.Error', {
     
     
     /**
+     * Contains the original object which the error was build with
+     * 
+     * @property {Mixed} originalObject
+     */
+    originalObject: null,
+    
+    
+    /**
      * @constructor
      * @param {Object} config
      */
@@ -218,6 +226,17 @@ Ext.define('Calc.library.error.Error', {
         }
         
         return stack;    
+    },
+    
+    
+    /**
+     * Returns the original object that the error was build with
+     * 
+     * @return {Mixed}
+     */
+    getOriginalObject: function()
+    {
+        return this.originalObject;
     },
     
     

@@ -46,6 +46,11 @@ Ext.define('Calc.view.layout.MainMenu', {
                 text: '6 Link Simulator',
                 href: 'http://poe6l.julycui.com/',
                 hrefTarget: '_blank'
+            }, {
+                iconCls: Calc.cssPrefix + 'icon-link-go',
+                text: 'Live Trade Chat',
+                href: 'http://poetradechat.com/',
+                hrefTarget: '_blank'
             }]
         }
     }, {

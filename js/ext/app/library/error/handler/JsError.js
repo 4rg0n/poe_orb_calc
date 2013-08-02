@@ -44,7 +44,8 @@ Ext.define('Calc.library.error.handler.JsError', {
             var options = {
                 msg: error.message,
                 type: 430,
-                stack: this.buildStack(error)
+                stack: this.buildStack(error),
+                originalObject: error
             };
                        
             return options;

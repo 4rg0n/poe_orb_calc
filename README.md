@@ -27,6 +27,10 @@ Used Frameworks
 
 * [ExtJs](http://www.sencha.com/products/extjs/)
 
+Used Libraries
+---------------
+
+* [XRegExp](http://xregexp.com/)
 
 
 

@@ -3,6 +3,7 @@
  *
  * @class Calc.library.error.ErrorManager
  * @uses Calc.view.error.Window
+ * @uses Calc.library.error.ErrorFactory
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.error.ErrorManager', {
@@ -140,5 +141,20 @@ Ext.define('Calc.library.error.ErrorManager', {
         this.errorWindow = Ext.create(this.errorWindowClass);
         
         return this.errorWindow;
+    },
+    
+    
+    /**
+     * Logs an error
+     * 
+     * @param {Mixed} error
+     */
+    log: function(error)
+    {
+        if (!error.isError) {
+            error = this.buildError(error);
+        }
+        
+        error.log();
     }
 });

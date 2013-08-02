@@ -22,7 +22,7 @@ Ext.define('Calc.view.orb.Grid', {
     ],
 
     tabId: 'calc-orb-grid',
-    routeId: 'calc-orb-grid',
+    routeId: 'orb',
 
     title: Calc.Language.translate('Orb Calculator Table'),
     

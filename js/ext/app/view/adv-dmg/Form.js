@@ -17,7 +17,7 @@ Ext.define('Calc.view.adv-dmg.Form', {
     ],
 
     tabId: 'calc-adv-dmg-form',
-    routeId: 'calc-adv-dmg-form',
+    routeId: 'adv-dmg',
 
     closable: false,
     

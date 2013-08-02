@@ -46,6 +46,7 @@ Ext.application({
         'Calc.library.error.ErrorManager',
         'Calc.library.Base64',
         'Calc.library.language.Language',
+        'Calc.library.routing.Routing',
         'Calc.library.service.Service',
         'Calc.library.util.XTemplateRenderer'
     ],
@@ -63,7 +64,8 @@ Ext.application({
         'Orb',
         'PhysDmg',
         'MainMenu',
-        'SkillTree'
+        'SkillTree',
+        'Routing'
     ],
     
     constructor: function()
@@ -85,6 +87,12 @@ Ext.application({
         delete Ext.tip.Tip.prototype.minWidth;
 
         Ext.create('Calc.view.Viewport');
+        
+        Calc.Routing.init(function(success) {
+            var request = Calc.Routing.getRequest();
+            
+            Calc.Routing.execRequest(request);
+        });
     },
     
     

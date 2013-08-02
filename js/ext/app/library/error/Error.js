@@ -83,6 +83,14 @@ Ext.define('Calc.library.error.Error', {
     
     
     /**
+     * Tells whether this is an error
+     * 
+     * @property {Boolean} isError
+     */
+    isError: true,
+    
+    
+    /**
      * @constructor
      * @param {Object} config
      */
@@ -299,6 +307,7 @@ Ext.define('Calc.library.error.Error', {
      */
     log: function()
     {
+        Ext.global.console.error(this.getMsg()); 
         Ext.global.console.error(this.getStack(true));    
     },
     

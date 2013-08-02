@@ -17,7 +17,7 @@ Ext.define('Calc.view.phys-dmg.Form', {
     ],
 
     tabId: 'calc-phys-dmg-form',
-    routeId: 'calc-phys-dmg-form',
+    routeId: 'phys-dmg',
 
     title: Calc.Language.translate('Simple DPS Calculator'),
 

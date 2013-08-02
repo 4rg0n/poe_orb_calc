@@ -30,7 +30,7 @@ Ext.define('Calc.view.skilltree.Form', {
     ],
 
     tabId: 'calc-skilltree-form',
-    routeId: 'calc-skilltree-form',
+    routeId: 'skill-tree',
 
     closable: false,
     

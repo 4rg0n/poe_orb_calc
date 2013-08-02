@@ -1,6 +1,19 @@
+/**
+ * Error Factory
+ *
+ * @class Calc.library.error.ErrorFactory
+ * @uses Calc.library.exception.Exception
+ * @uses Calc.library.error.Error
+ * @uses Calc.library.error.handler.JsError
+ * @uses Calc.library.error.handler.ExtError
+ * @uses Calc.library.error.handler.Operation
+ * @uses Calc.library.error.handler.Exception
+ * @author Arg0n <argonthechecker@gmail.com>
+ */
 Ext.define('Calc.library.error.ErrorFactory', {
     
     uses: [
+        'Calc.library.exception.Exception',
         'Calc.library.error.Error',
         'Calc.library.error.handler.JsError',
         'Calc.library.error.handler.ExtError',

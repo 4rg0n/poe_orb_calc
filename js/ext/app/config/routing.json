@@ -1,0 +1,46 @@
+{
+    "routes": [
+        {
+            "id": "error",
+            "path": "/error",
+            "defaults": {
+                "_controller": "Error:error",
+            }
+        },
+        {
+            "id": "home",
+            "path": "/",
+            "defaults": {
+                "_controller": "Orb:open",
+            }
+        },
+        {
+            "id": "orb",
+            "path": "/orb",
+            "defaults": {
+                "_controller": "Orb:open",
+            }
+        },
+        {
+            "id": "phys-dmg",
+            "path": "/phys-dmg",
+            "defaults": {
+                "_controller": "PhysDmg:open",
+            }
+        },
+        {
+            "id": "adv-dmg",
+            "path": "/adv-dmg",
+            "defaults": {
+                "_controller": "AdvDmg:open",
+            }
+        },
+        {
+            "id": "skill-tree",
+            "path": "/skill-tree",
+            "defaults": {
+                "_controller": "SkillTree:open",
+            }
+        }
+    ]
+}

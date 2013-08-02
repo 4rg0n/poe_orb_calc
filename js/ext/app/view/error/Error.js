@@ -20,14 +20,16 @@ Ext.define('Calc.view.error.Error', {
     type: null,
     
     header: false,
+    closable: true,
     
     iconCls: Calc.cssPrefix + 'icon-error',
 
     alias: 'widget.calc-error-error',
     tabId: 'calc-error-error',
+    routeId: 'error',
     
 
-    title: Language.translate('Error'),
+    title: Calc.Language.translate('Error'),
 
     loader: {
         url: Calc.appFolder + '/template/error/Error.html',
@@ -36,6 +38,7 @@ Ext.define('Calc.view.error.Error', {
     
     styleHtmlContent: true,
     autoScroll: true,
+    bodyPadding: 10,
     
     
     /**

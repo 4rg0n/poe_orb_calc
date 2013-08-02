@@ -140,8 +140,8 @@ Ext.define('Calc.library.exception.Exception', {
 
         while(currentException) {
             Ext.Array.push(exceptions, currentException);
-
-            currentException = currentException.getPreviousException();
+            
+            currentException = currentException.previousException;
         }
 
         return exceptions;

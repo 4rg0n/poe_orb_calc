@@ -45,12 +45,11 @@ Ext.define('Calc.view.layout.TabPanel', {
      */
     initComponent: function()
     {
-        this.addListener('beforeadd', this.beforeAdd);
         this.addListener('tabchange', this.changeTab);
         this.callParent();
     },
 
-
+    
     /**
      * Executes before a tab is added to the tabpanel
      * Checks if the tab already exists in the tabpanel
@@ -63,7 +62,7 @@ Ext.define('Calc.view.layout.TabPanel', {
      * @throws {Calc.Exception}
      * @returns {Boolean}
      */
-    beforeAdd: function(tabpanel, component)
+    addTab: function(component)
     {
         var tabId = null;
 
@@ -87,7 +86,11 @@ Ext.define('Calc.view.layout.TabPanel', {
 
             return false;
         }
+        
+        this.add(component);
+        this.setActiveTab(component);
     },
+ 
 
 
     /**

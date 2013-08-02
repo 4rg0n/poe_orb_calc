@@ -48,7 +48,7 @@ Ext.define('Calc.controller.Routing', {
      * @param {Calc.library.routing.Request} request
      * @param {String} [controllerName]
      * @param {String} [actionName]
-     * @throws Calc.routing.Exception
+     * @throws {Calc.routing.Exception}
      */
     exec: function(request, controllerName, actionName)
     {
@@ -75,7 +75,7 @@ Ext.define('Calc.controller.Routing', {
                 eval('controller.' + actionName + '(request)');
             } else {
                 throw new Calc.routing.Exception(
-                    Ext.String.format('"{0}" has no method "{1}".', controllerName, actionName)
+                    Ext.String.format('Controller "{0}" has no method "{1}".', controllerName, actionName)
                 );
             }
                 

@@ -134,5 +134,26 @@ Ext.define('Calc.controller.Orb', {
         chartWindow.calculate(function() {
             chartWindow.show();
         });
+    },
+
+
+    /**
+     * Opens the orb grid
+     *
+     * @param {Calc.library.routing.Request} request
+     */
+    openRoute: function(request)
+    {
+       this.open()
+    },
+
+
+    /**
+     * Opens the orb grid
+     */
+    open: function()
+    {
+        var orbGrid = this.getView('orb.Grid').create();
+        this.getTabPanel().addTab(orbGrid);
     }
 });

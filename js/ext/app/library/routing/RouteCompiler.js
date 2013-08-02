@@ -15,23 +15,16 @@ Ext.define('Calc.library.routing.RouteCompiler', {
     
     statics: {
         
-        regexDelimeter: '/',
-        
-        
         /**
          * Compiles a route
          * 
          * @param {Calc.library.routing.Route} route
-         * @throws Calc.route.Exception
+         * @throws {Calc.route.Exception}
          * @return {Calc.library.routing.CompiledRoute}
          */
         compile: function(route)
         {
-            var staticPrefix,
-                regex,
-                tokens,
-                pathVariables,
-                result;
+            var result;
                 
             try {    
                 
@@ -50,14 +43,14 @@ Ext.define('Calc.library.routing.RouteCompiler', {
          * Black magic voodoo stuff
          * 
          * @param {Calc.library.routing.Route} route
-         * @throws Calc.routing.Exception}
+         * @throws {Calc.routing.Exception}
          * @return {Object}
          */
         compilePattern: function(route)
         {
             var tokens = {},
                 variables = [],
-                varRegex = new RegExp('\{\(.*?)\}', 'g'), //findet alles zwischen {}
+                varRegex = new RegExp('\{\(.*?)\}', 'g'), //Finds everything between {}
                 matches = {},
                 pattern = route.getPattern(),
                 seperator = '/',

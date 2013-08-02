@@ -4,6 +4,7 @@
  * @class Calc.library.routing.Route
  * @uses Calc.library.routing.RouteCompiler
  * @uses Calc.library.routing.Exception
+ * @uses Ext.Template
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.library.routing.Route', {
@@ -11,7 +12,8 @@ Ext.define('Calc.library.routing.Route', {
     
     uses: [
         'Calc.library.routing.RouteCompiler',
-        'Calc.library.routing.Exception'
+        'Calc.library.routing.Exception',
+        'Ext.Template'
     ],
     
     /**
@@ -65,12 +67,32 @@ Ext.define('Calc.library.routing.Route', {
     
     /**
      * Returns the path of route
-     * 
+     * If an object is given, the tokens will be replaced with data from object
+     *
+     * @param {Ext.data.Model/Object} [object]
      * @return {String}
      */
-    getPath: function()
+    getPath: function(object)
     {
-        return this.get('path');
+        var path = this.get('path'),
+            tpl, data;
+
+        if (object) {
+
+            //Is object?
+            if (Ext.isObject(object)) {
+                data = object;
+            }
+
+            if (object.isModel) {
+                data = object.getData();
+            }
+
+            tpl = new Ext.Template(path);
+            path = tpl.apply(data);
+        }
+
+        return path;
     },
     
     /**
@@ -90,12 +112,13 @@ Ext.define('Calc.library.routing.Route', {
     
     /**
      * Returns the Path
-     * 
+     *
+     * @param {Object/Ext.data.Model} [object]
      * @return {String}
      */
-    getPattern: function()
+    getPattern: function(object)
     {
-        return this.getPath();
+        return this.getPath(object);
     },
     
     
@@ -191,7 +214,7 @@ Ext.define('Calc.library.routing.Route', {
      * 
      * @chainable
      * @param {Object{}} newDefaults
-     * @throws Calc.route.Exception
+     * @throws {Calc.route.Exception}
      * @return {Calc.library.routing.Route}
      */
     addDefaults: function(newDefaults) {
@@ -270,7 +293,7 @@ Ext.define('Calc.library.routing.Route', {
      * 
      * @chainable
      * @param {Object} newRequirements
-     * @throws Calc.route.Exception
+     * @throws {Calc.route.Exception}
      * @return {Calc.library.routing.Route}
      */
     addRequirements: function(newRequirements)
@@ -410,7 +433,7 @@ Ext.define('Calc.library.routing.Route', {
     /**
      * Validates the route
      * 
-     * @throws Calc.route.Exception
+     * @throws {Calc.route.Exception}
      */
     validate: function()
     {

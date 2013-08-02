@@ -8,7 +8,8 @@
  * @uses Calc.view.orb.Grid
  * @uses Calc.view.phys-dmg.Form
  * @uses Calc.view.adv-dmg.Form
- * @uses Calc.view.skilltree.For
+ * @uses Calc.view.skilltree.Form
+ * @uses Calc.library.routing.Routing
  * @author Arg0n <argonthechecker@gmail.com>
  */
 Ext.define('Calc.view.layout.TabPanel', {
@@ -19,7 +20,8 @@ Ext.define('Calc.view.layout.TabPanel', {
         'Calc.view.phys-dmg.Form',
         'Calc.view.adv-dmg.Form',
         'Calc.view.skilltree.Form',
-        'Calc.library.exception.Exception'
+        'Calc.library.exception.Exception',
+        'Calc.library.routing.Routing'
     ],
     
     id: 'calc-tabpanel',
@@ -57,8 +59,7 @@ Ext.define('Calc.view.layout.TabPanel', {
      *
      * Also checks if the component has the tab mixin
      *
-     * @param {Calc.view.layout.TabPanel} tabpanel
-     * @param {Ext.Component/Calc.library.mixin.tab.Tab} component
+     * @param {*} component
      * @throws {Calc.Exception}
      * @returns {Boolean}
      */
@@ -76,6 +77,10 @@ Ext.define('Calc.view.layout.TabPanel', {
 
             if (this.hasTab(tabId)) {
                 this.setActiveTab(this.getTab(tabId));
+
+                //Destroys the component, because it wont be needed anymore
+                component.destroy();
+
                 return false;
             }
 
@@ -83,12 +88,12 @@ Ext.define('Calc.view.layout.TabPanel', {
             throw new Calc.Exception(
                 Ext.String.format('Component must implement mixin "{0}".', this.tabMixinClassName)
             );
-
-            return false;
         }
         
         this.add(component);
         this.setActiveTab(component);
+
+        return true;
     },
  
 
@@ -103,7 +108,7 @@ Ext.define('Calc.view.layout.TabPanel', {
      */
     changeTab: function(tabpanel, newTab, oldTab)
     {
-        console.log(newTab.getTabId(), newTab.getRouteId());
+        Calc.Routing.updateUri(newTab.getRouteId());
     },
 
     

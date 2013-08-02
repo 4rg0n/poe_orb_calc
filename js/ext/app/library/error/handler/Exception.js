@@ -59,6 +59,7 @@ Ext.define('Calc.library.error.handler.Exception', {
             Ext.Array.each(exceptions, function(exception) {
                 Ext.Array.push(stack, exception.message || exception.msg);
                 Ext.Array.push(stack, exception.stack);
+                Ext.Array.push(stack, '');
             });
             
             return stack;

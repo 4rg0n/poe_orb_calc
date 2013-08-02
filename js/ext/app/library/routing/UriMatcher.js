@@ -10,7 +10,7 @@
 Ext.define('Calc.library.routing.UriMatcher', {
     
     uses: [
-        'Calc.library.routing.Exception'
+        'Calc.library.routing.Exception',
     ],
     
     /**
@@ -39,10 +39,16 @@ Ext.define('Calc.library.routing.UriMatcher', {
      */
     match: function(uri) 
     {
-        var route = null;
-        
-        route = this.matchRoutes(uri);
-        
+        var route;
+        try {
+            route = this.matchRoutes(uri);
+        } catch (err) {
+            throw new Calc.routing.Exception(
+                Ext.String.format('Error while matching URI "{0}"', uri),
+                err
+            );
+        }
+
         return route;
     },
     
@@ -60,11 +66,13 @@ Ext.define('Calc.library.routing.UriMatcher', {
             compiledRoute,
             staticPrefix,
             matches;
-        
+
         if (routes && uri) {
             
             routes.each(function(route) {
+
                 compiledRoute = route.compile();
+
                 staticPrefix = compiledRoute.getStaticPrefix();
                 
                 if ('' !== staticPrefix && uri.indexOf(staticPrefix) >= 0) {

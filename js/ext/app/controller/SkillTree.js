@@ -183,5 +183,26 @@ Ext.define('Calc.controller.SkillTree', {
                 form.getEl().unmask();
             });
         }
+    },
+
+
+    /**
+     * Opens the skill tree form
+     *
+     * @param {Calc.library.routing.Request} request
+     */
+    openRoute: function(request)
+    {
+        this.open()
+    },
+
+
+    /**
+     * Opens the skill tree form
+     */
+    open: function()
+    {
+        var skilltreeForm = this.getView('skilltree.Form').create();
+        this.getTabPanel().addTab(skilltreeForm);
     }
 });

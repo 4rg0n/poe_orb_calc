@@ -112,6 +112,26 @@ Ext.define('Calc.controller.PhysDmg', {
         });
 
         this.getPhysDmgForm().getForm().reset();
-    }
+    },
 
+
+    /**
+     * Opens the physical damage form
+     *
+     * @param {Calc.library.routing.Request} request
+     */
+    openRoute: function(request)
+    {
+        this.open()
+    },
+
+
+    /**
+     * Opens the physical damage form
+     */
+    open: function()
+    {
+        var physDmgForm = this.getView('phys-dmg.Form').create();
+        this.getTabPanel().addTab(physDmgForm);
+    }
 });

@@ -7,6 +7,7 @@
  * @requires Calc.library.routing.UriMatcher
  * @uses Calc.library.routing.Request
  * @uses Calc.library.routing.Exception
+ * @uses Calc.library.error.ErrorManager
  * @alternateClassName Calc.Routing
  * @singleton
  * @author Arg0n <argonthechecker@gmail.com>
@@ -18,21 +19,22 @@ Ext.define('Calc.library.routing.Routing', {
     singleton: true,
     
     requires: [
-        'Ext.util.History',
+        'Calc.library.util.History',
         'Calc.library.routing.Routes',
         'Calc.library.routing.UriMatcher'
     ],
     
     uses: [
         'Calc.library.routing.Exception',
-        'Calc.library.routing.Request'
+        'Calc.library.routing.Request',
+        'Calc.library.error.ErrorManager'
     ],
 
     
     /**
      * ExtJs History
      * 
-     * @property {Ext.util.History} history 
+     * @property {Calc.library.util.History} history
      */
     history: null,
    
@@ -81,7 +83,7 @@ Ext.define('Calc.library.routing.Routing', {
      */
     constructor: function()
     {
-        this.history = Ext.util.History;
+        this.history = Calc.library.util.History;
     },
     
     /**
@@ -91,9 +93,17 @@ Ext.define('Calc.library.routing.Routing', {
      */
     init: function(callback)
     {
+        var me = this;
+
         this.history.init();
-        this.initMatcher();
-        this.initRoutes(callback);
+        this.initRoutes(function(success) {
+            me.initMatcher();
+
+            if (typeof callback == 'function') {
+                callback(success);
+            }
+        });
+
     },
     
     /**
@@ -182,7 +192,7 @@ Ext.define('Calc.library.routing.Routing', {
      *
      * @private
      * @param {Object} route
-     * @throws Calc.routing.Exception
+     * @throws {Calc.routing.Exception}
      * @return {Boolean}
      */
     _validateRouteObj: function(route) {
@@ -281,14 +291,17 @@ Ext.define('Calc.library.routing.Routing', {
     getRequest: function()
     {
         var uri = this.getUriString(),
-            
-            route = this.getMatcher().match(uri),   
-        
-            request = this.buildRequest({
-                route: route
-            });
-        
+            route, request;
+
+
+        route = this.getMatcher().match(uri);
+
+        request = this.buildRequest({
+            route: route
+        });
+
         return request;
+
     },
     
     
@@ -336,5 +349,31 @@ Ext.define('Calc.library.routing.Routing', {
     execRequest: function(request)
     {
         Calc.app.getController(this.routingController).exec(request);    
+    },
+
+
+    /**
+     *
+     * @param {String/Calc.library.routing.Route} route
+     * @param {Object/Ext.data.Model} [data]
+     * @throws {Calc.routing.Exception}
+     */
+    updateUri: function(route, data)
+    {
+        var uri = '';
+
+        if (Ext.isString(route)) {
+            route = this.getRoutes().getRoute(route);
+        }
+
+        if (route instanceof Calc.library.routing.Route) {
+
+            uri = route.getPath(data);
+
+            this.history.add('!' + uri);
+
+        } else {
+            throw new Calc.routing.Exception('Could not update URI');
+        }
     }
 });

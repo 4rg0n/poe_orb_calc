@@ -42,12 +42,16 @@ Ext.application({
     
     requires: [
 
+        //Overrides
+        'Calc.library.override.Object',
+        'Calc.library.override.Array',
+
         //Singletons
         'Calc.library.error.ErrorManager',
         'Calc.library.Base64',
         'Calc.library.language.Language',
-        'Calc.library.routing.Routing',
         'Calc.library.service.Service',
+        'Calc.library.routing.Routing',
         'Calc.library.util.XTemplateRenderer'
     ],
     
@@ -65,6 +69,7 @@ Ext.application({
         'PhysDmg',
         'MainMenu',
         'SkillTree',
+        'AdvDmg',
         'Routing'
     ],
     
@@ -89,9 +94,15 @@ Ext.application({
         Ext.create('Calc.view.Viewport');
         
         Calc.Routing.init(function(success) {
-            var request = Calc.Routing.getRequest();
-            
-            Calc.Routing.execRequest(request);
+
+            try {
+                var request = Calc.Routing.getRequest();
+
+                Calc.Routing.execRequest(request);
+            } catch (err) {
+
+                Calc.ErrorManager.log(err);
+            }
         });
     },
     
